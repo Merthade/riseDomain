@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Rise</title>
+    <meta name="description" content="Privacy policy for Rise, the morning routine app. Learn how your data is stored, used, and protected.">
+    <link rel="canonical" href="https://risemorning.app/privacy.html">
+    <meta property="og:title" content="Privacy Policy - Rise">
+    <meta property="og:description" content="Privacy policy for Rise, the morning routine app.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://risemorning.app/privacy.html">
+    <meta property="og:site_name" content="Rise">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/appicon.png">
+    <link rel="apple-touch-icon" href="assets/appicon.png">
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <style>
+        :root {
+            --accent: #D4882A;
+            --accent-hover: #c07a22;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-tertiary: #888;
+            --bg: #F8F6F3;
+            --card-bg: #fff;
+            --card-border: rgba(0,0,0,0.06);
+        }
+
+        [data-theme="dark"] {
+            --accent: #E8A44A;
+            --accent-hover: #d4963e;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #8e8e93;
+            --bg: #1A1A1E;
+            --card-bg: #2c2c2e;
+            --card-border: rgba(255,255,255,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            font-size: 15px;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 60px 24px 80px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 40px;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover { color: var(--accent-hover); }
+
+        .back-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
+        }
+
+        .updated {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover { text-decoration: underline; }
+
+        ul {
+            margin: 0 0 16px 20px;
+            color: var(--text-secondary);
+        }
+
+        li { margin-bottom: 6px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="/" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Back to Rise
+    </a>
+
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: March 23, 2026</p>
+
+    <h2>Data Storage</h2>
+    <p>Rise stores your routine data, settings, and streak history locally on your device using SwiftData. If you enable iCloud sync, your data is stored in your private iCloud container — only you can access it. We do not have access to your personal data.</p>
+
+    <h2>Analytics</h2>
+    <p>We use <strong>PostHog</strong> (hosted in the EU) to collect anonymous usage analytics. This helps us understand how people use the app so we can make it better. All data is anonymous. No personal identifiers are collected.</p>
+    <p>Analytics can be disabled in Settings at any time.</p>
+
+    <h2>Health Data</h2>
+    <p>Rise can optionally integrate with Apple Health to:</p>
+    <ul>
+        <li>Read your sleep data to personalize your experience</li>
+        <li>Record wake-up times and focus session durations</li>
+    </ul>
+    <p>Health data stays on your device and is accessed through Apple's HealthKit framework. We never see, collect, or transmit your health data. You can revoke Health access at any time in iOS Settings.</p>
+
+    <h2>Notifications</h2>
+    <p>Notifications and alarms are handled entirely on your device using Apple's notification and AlarmKit systems. No notification data is sent to external servers.</p>
+
+    <h2>Subscriptions</h2>
+    <p>Subscriptions are processed entirely through Apple's App Store. We do not collect or store any payment information. Subscription management and billing are handled by Apple.</p>
+
+    <h2>Third-Party Sharing</h2>
+    <p>We do not sell, share, or transfer your personal data to third parties. Period.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>Rise does not knowingly collect personal information from children under 13. The app does not require an account or any personal information to function.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this privacy policy, reach out at <a href="mailto:info@risemorning.app">info@risemorning.app</a>.</p>
+</div>
+
+</body>
+</html>

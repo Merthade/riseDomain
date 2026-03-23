@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise - Your Morning Ritual, Reinvented</title>
+    <meta name="description" content="Rise helps you build a powerful morning routine with smart alarms, focus timers, and streak tracking. Wake up with purpose, every single day.">
+    <meta name="keywords" content="morning routine app, alarm app, focus timer, streak tracker, habit tracker, wake up app, productivity, iOS app, daily routine, morning ritual">
+    <link rel="canonical" href="https://risemorning.app/">
+    <meta property="og:title" content="Rise - Your Morning Ritual, Reinvented">
+    <meta property="og:description" content="Smart alarms, focus timers, and streak tracking. Build a morning routine that sticks.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://risemorning.app/">
+    <meta property="og:image" content="https://risemorning.app/assets/ogshare.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Rise">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rise - Your Morning Ritual, Reinvented">
+    <meta name="twitter:description" content="Smart alarms, focus timers, and streak tracking. Build a morning routine that sticks.">
+    <meta name="twitter:image" content="https://risemorning.app/assets/ogshare.png">
+    <meta name="apple-itunes-app" content="app-id=0000000000">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/appicon.png">
+    <link rel="apple-touch-icon" href="assets/appicon.png">
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (!theme) theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <style>
+        :root {
+            --accent: #D4882A;
+            --accent-hover: #c07a22;
+            --accent-soft: #FFF3E0;
+            --accent-glow: rgba(212, 136, 42, 0.15);
+            --success: #4CAF7D;
+            --text-primary: #1a1a1a;
+            --text-secondary: #555;
+            --text-tertiary: #888;
+            --bg: #F8F6F3;
+            --bg-alt: #F0EDE8;
+            --card-bg: #fff;
+            --card-border: rgba(0,0,0,0.06);
+            --nav-bg: rgba(248, 246, 243, 0.85);
+            --footer-border: #e8e4df;
+            --table-header: #FFF8F0;
+            --table-border: #e8e4df;
+            --gradient-warm: linear-gradient(135deg, #FFF3E0 0%, #F8F6F3 50%, #FFF8F0 100%);
+            --gradient-hero: linear-gradient(180deg, #FFF3E0 0%, #F8F6F3 100%);
+            --gradient-cta: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #1a1a2e 100%);
+        }
+
+        [data-theme="dark"] {
+            --accent: #E8A44A;
+            --accent-hover: #d4963e;
+            --accent-soft: #2a2218;
+            --accent-glow: rgba(232, 164, 74, 0.12);
+            --success: #4CAF7D;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #8e8e93;
+            --bg: #1A1A1E;
+            --bg-alt: #161618;
+            --card-bg: #2c2c2e;
+            --card-border: rgba(255,255,255,0.08);
+            --nav-bg: rgba(26, 26, 30, 0.85);
+            --footer-border: #2c2c2e;
+            --table-header: #2a2218;
+            --table-border: #3a3a3c;
+            --gradient-warm: linear-gradient(135deg, #2a2218 0%, #1A1A1E 50%, #2a2218 100%);
+            --gradient-hero: linear-gradient(180deg, #2a2218 0%, #1A1A1E 100%);
+            --gradient-cta: linear-gradient(135deg, #2a2218 0%, #1a1a1e 50%, #2a2218 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text-primary);
+            font-size: 15px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---- NAV ---- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .nav-brand img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+        }
+
+        .nav-brand span {
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .nav-download:hover { background: var(--accent-hover); }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-secondary);
+            padding: 6px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            transition: color 0.2s;
+        }
+
+        .theme-toggle:hover { color: var(--text-primary); }
+
+        .theme-toggle svg { width: 20px; height: 20px; }
+
+        .sun-icon { display: none; }
+        .moon-icon { display: block; }
+        [data-theme="dark"] .sun-icon { display: block; }
+        [data-theme="dark"] .moon-icon { display: none; }
+
+        /* ---- HERO ---- */
+        .hero {
+            padding: 140px 0 80px;
+            background: var(--gradient-hero);
+        }
+
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-content {
+            max-width: 500px;
+        }
+
+        .hero-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .hero-title {
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.08;
+            margin-bottom: 20px;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--accent), #E8A44A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .hero-pricing {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            margin-bottom: 32px;
+        }
+
+        .hero-pricing strong {
+            color: var(--text-primary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .app-store-badge img {
+            height: 52px;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-icon {
+            width: 280px;
+            height: 280px;
+            border-radius: 56px;
+            box-shadow: 0 24px 80px rgba(212, 136, 42, 0.25), 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        [data-theme="dark"] .hero-icon {
+            box-shadow: 0 24px 80px rgba(232, 164, 74, 0.15), 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        /* ---- SECTIONS COMMON ---- */
+        .section { padding: 100px 0; }
+        .section-alt { background: var(--bg-alt); }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 560px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        /* ---- HOW IT WORKS ---- */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .step-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .step-card h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ---- FEATURES ---- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 28px 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--accent-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .feature-icon svg {
+            width: 22px;
+            height: 22px;
+            color: var(--accent);
+        }
+
+        .feature-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            background: var(--accent);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ---- PRICING ---- */
+        .pricing-wrapper {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent), 0 8px 32px var(--accent-glow);
+        }
+
+        .pricing-card.featured:hover {
+            box-shadow: 0 0 0 1px var(--accent), 0 12px 40px var(--accent-glow);
+        }
+
+        .pricing-popular {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .pricing-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pricing-amount {
+            font-size: 44px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 4px;
+        }
+
+        .pricing-period {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            margin-bottom: 24px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 28px;
+        }
+
+        .pricing-features li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-features li:last-child { border-bottom: none; }
+
+        .pricing-features .check {
+            color: var(--success);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .pricing-features .dash {
+            color: var(--text-tertiary);
+            flex-shrink: 0;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--text-tertiary);
+        }
+
+        /* ---- CTA ---- */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--gradient-cta);
+            text-align: center;
+        }
+
+        .cta-section .section-title {
+            color: #fff;
+        }
+
+        .cta-section .section-subtitle {
+            color: rgba(255,255,255,0.7);
+            margin: 0 auto 36px;
+        }
+
+        /* ---- FOOTER ---- */
+        footer {
+            border-top: 1px solid var(--footer-border);
+            padding: 40px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand img {
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+        }
+
+        .footer-brand-text h4 {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .footer-brand-text p {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--text-primary); }
+
+        .footer-copy {
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-tertiary);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--footer-border);
+        }
+
+        /* ---- ANIMATIONS ---- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 900px) {
+            .hero-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content { max-width: 100%; }
+            .hero-title { font-size: 40px; }
+            .hero-buttons { justify-content: center; }
+            .hero-icon { width: 200px; height: 200px; border-radius: 44px; }
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 700px) {
+            .nav-links { display: none; }
+            .hero { padding: 120px 0 60px; }
+            .hero-title { font-size: 34px; }
+            .hero-subtitle { font-size: 16px; }
+            .section { padding: 72px 0; }
+            .section-title { font-size: 28px; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .pricing-cards { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 30px; }
+            .hero-icon { width: 160px; height: 160px; border-radius: 36px; }
+            .section-title { font-size: 24px; }
+            .pricing-amount { font-size: 36px; }
+        }
+
+        /* Schema.org */
+        script[type="application/ld+json"] { display: none; }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Rise",
+        "description": "Build a powerful morning routine with smart alarms, focus timers, and streak tracking.",
+        "applicationCategory": "LifestyleApplication",
+        "operatingSystem": "iOS",
+        "offers": [
+            {
+                "@type": "Offer",
+                "price": "2.99",
+                "priceCurrency": "USD",
+                "description": "Weekly subscription"
+            },
+            {
+                "@type": "Offer",
+                "price": "39.99",
+                "priceCurrency": "USD",
+                "description": "Annual subscription"
+            }
+        ],
+        "author": {
+            "@type": "Person",
+            "name": "Emils Ozols"
+        }
+    }
+    </script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="nav-brand">
+            <img src="assets/appicon.png" alt="Rise app icon">
+            <span>Rise</span>
+        </a>
+        <div class="nav-links">
+            <a href="#how-it-works">How It Works</a>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+        </div>
+        <div class="nav-right">
+            <a href="https://apps.apple.com/app/id0000000000" class="nav-download" id="nav-download">Download</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <p class="hero-label">Morning Routine App</p>
+                <h1 class="hero-title">Wake up with <span class="highlight">purpose.</span></h1>
+                <p class="hero-subtitle">Rise guides you through a calm, structured morning, from alarm to focus session, so you can start every day intentionally.</p>
+                <p class="hero-pricing">Free to try. <strong>Subscription unlocks everything.</strong></p>
+                <div class="hero-buttons">
+                    <a href="https://apps.apple.com/app/id0000000000" class="app-store-badge" id="hero-download">
+                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/appicon.png" alt="Rise app icon" class="hero-icon">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section-alt" id="how-it-works">
+    <div class="container">
+        <div class="section-header fade-in">
+            <p class="section-label">How It Works</p>
+            <h2 class="section-title">Your morning in four steps</h2>
+            <p class="section-subtitle">Rise turns your morning into a ritual. Each step flows naturally into the next.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card fade-in">
+                <div class="step-number">1</div>
+                <h3>Alarm</h3>
+                <p>Set your wake time. Rise uses system-level alarms that work even in silent mode.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">2</div>
+                <h3>Wake-Up Check</h3>
+                <p>A gentle 10-minute check to make sure you're actually up. Miss it and the alarm returns.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">3</div>
+                <h3>Focus Timer</h3>
+                <p>Settle into a focused session, 5 to 120 minutes. Read, journal, meditate, or just breathe.</p>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">4</div>
+                <h3>Done</h3>
+                <p>Complete your routine and build your streak. Reflect on how the morning went.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+    <div class="container">
+        <div class="section-header fade-in">
+            <p class="section-label">Features</p>
+            <h2 class="section-title">Everything you need, nothing you don't</h2>
+            <p class="section-subtitle">Designed to be calm, focused, and distraction-free.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>Flexible Timer</h3>
+                <p>Set your focus session from 5 to 120 minutes. No rigid Pomodoro rules. Your pace, your way.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3>Streak Tracking</h3>
+                <p>Build momentum with daily streaks. Hit milestones at 7, 30, 60, and 100 days and beyond.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h3>Calendar Heatmap</h3>
+                <p>Visualize your consistency with a beautiful heatmap showing your completion history.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Streak Freeze</h3>
+                <p>Life happens. Use a streak freeze to protect your streak when you need a day off.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Apple Health</h3>
+                <p>Reads your sleep data and records wake times and focus sessions to Health.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Live Activities</h3>
+                <p>See your focus timer right on your Lock Screen and Dynamic Island while in session.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>Widgets</h3>
+                <p>Glance at your streak, next alarm, and routine status from your Home or Lock Screen.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+                <h3>Smart Alarms</h3>
+                <p>System-level alarms powered by AlarmKit. They work reliably, every single morning.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <h3>Reflection</h3>
+                <p>End each morning with an optional reflection. Look back on what you wrote over time.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section-alt" id="pricing">
+    <div class="container">
+        <div class="section-header fade-in">
+            <p class="section-label">Pricing</p>
+            <h2 class="section-title">Simple, transparent pricing</h2>
+            <p class="section-subtitle">Choose the plan that works for you.</p>
+        </div>
+        <div class="pricing-wrapper fade-in">
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Weekly</h3>
+                    <div class="pricing-amount">$2.99</div>
+                    <div class="pricing-period">per week</div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> Smart alarms</li>
+                        <li><span class="check">&#10003;</span> Focus timer</li>
+                        <li><span class="check">&#10003;</span> Streak tracking</li>
+                        <li><span class="check">&#10003;</span> Reflection journal</li>
+                        <li><span class="check">&#10003;</span> Widgets</li>
+                        <li><span class="check">&#10003;</span> Apple Health</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-popular">Best Value</div>
+                    <h3>Annual</h3>
+                    <div class="pricing-amount">$39.99</div>
+                    <div class="pricing-period">per year</div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> Everything in Weekly</li>
+                        <li><span class="check">&#10003;</span> Save 74%</li>
+                        <li><span class="check">&#10003;</span> Just $0.77/week</li>
+                        <li><span class="check">&#10003;</span> Best for building habits</li>
+                        <li><span class="check">&#10003;</span> Full year of access</li>
+                        <li><span class="check">&#10003;</span> Cancel anytime</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="pricing-note">All subscriptions auto-renew. Cancel anytime in Settings.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="container">
+        <h2 class="section-title fade-in">Start your mornings right</h2>
+        <p class="section-subtitle fade-in">Your morning sets the tone for your entire day. Make it count.</p>
+        <div class="fade-in">
+            <a href="https://apps.apple.com/app/id0000000000" class="app-store-badge" id="footer-download">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store">
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="assets/appicon.png" alt="Rise">
+                <div class="footer-brand-text">
+                    <h4>Rise</h4>
+                    <p>Your morning ritual, reinvented.</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:info@risemorning.app">Contact</a>
+            </div>
+        </div>
+        <p class="footer-copy">Made by Emils Ozols &copy; 2026 Rise</p>
+    </div>
+</footer>
+
+<script>
+    // Theme toggle
+    const toggle = document.getElementById('theme-toggle');
+    toggle.addEventListener('click', function() {
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+    });
+
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(function(el) {
+        observer.observe(el);
+    });
+
+    // Privacy redirect
+    if (window.location.hash === '#privacy') {
+        window.location.href = 'privacy.html';
+    }
+</script>
+
+</body>
+</html>
