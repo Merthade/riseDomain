@@ -268,15 +268,30 @@
             flex-shrink: 0;
         }
 
-        .hero-icon {
+        .hero-phone {
             width: 280px;
-            height: 280px;
-            border-radius: 56px;
-            box-shadow: 0 24px 80px rgba(212, 136, 42, 0.25), 0 8px 24px rgba(0,0,0,0.08);
         }
 
-        [data-theme="dark"] .hero-icon {
-            box-shadow: 0 24px 80px rgba(232, 164, 74, 0.15), 0 8px 24px rgba(0,0,0,0.3);
+        /* ---- SCREENSHOT STRIP ---- */
+        .screenshots-section {
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .screenshots-strip {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            padding: 0 24px;
+        }
+
+        .screenshots-strip img {
+            width: 220px;
+            transition: transform 0.3s;
+        }
+
+        .screenshots-strip img:hover {
+            transform: translateY(-4px);
         }
 
         /* ---- SECTIONS COMMON ---- */
@@ -633,7 +648,8 @@
             .hero-content { max-width: 100%; }
             .hero-title { font-size: 40px; }
             .hero-buttons { justify-content: center; }
-            .hero-icon { width: 200px; height: 200px; border-radius: 44px; }
+            .hero-phone { width: 200px; border-radius: 28px; }
+            .screenshots-strip img { width: 180px; border-radius: 20px; }
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -646,19 +662,24 @@
             .section-title { font-size: 28px; }
             .features-grid { grid-template-columns: repeat(2, 1fr); }
             .steps-grid { grid-template-columns: 1fr 1fr; }
+            .screenshots-strip { gap: 16px; }
+            .screenshots-strip img { width: 150px; border-radius: 18px; }
         }
 
         @media (max-width: 600px) {
             .features-grid { grid-template-columns: 1fr; }
             .pricing-cards { grid-template-columns: 1fr; }
             .steps-grid { grid-template-columns: 1fr; }
+            .screenshots-strip img { width: 130px; border-radius: 16px; }
         }
 
         @media (max-width: 480px) {
             .hero-title { font-size: 30px; }
-            .hero-icon { width: 160px; height: 160px; border-radius: 36px; }
+            .hero-phone { width: 160px; border-radius: 24px; }
             .section-title { font-size: 24px; }
             .pricing-amount { font-size: 36px; }
+            .screenshots-strip { gap: 12px; }
+            .screenshots-strip img { width: 110px; border-radius: 14px; }
         }
 
         /* Schema.org */
@@ -734,7 +755,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/appicon.png" alt="Rise app icon" class="hero-icon">
+                <img src="assets/screenshot-home.png" alt="Rise app home screen showing morning routine" class="hero-phone">
             </div>
         </div>
     </div>
@@ -770,6 +791,21 @@
                 <p>Complete your routine and build your streak. Reflect on how the morning went.</p>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section class="screenshots-section">
+    <div class="section-header fade-in">
+        <p class="section-label">See it in action</p>
+        <h2 class="section-title">Designed to feel calm</h2>
+        <p class="section-subtitle">Clean interface, warm tones, and zero distractions.</p>
+    </div>
+    <div class="screenshots-strip fade-in">
+        <img src="assets/screenshot-alarm.png" alt="Rise alarm screen">
+        <img src="assets/screenshot-focus.png" alt="Rise focus timer">
+        <img src="assets/screenshot-streak.png" alt="Rise streak tracking calendar">
+        <img src="assets/screenshot-winddown.png" alt="Rise wind down screen">
     </div>
 </section>
 
