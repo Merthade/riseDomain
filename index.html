@@ -22,6 +22,16 @@
     <meta name="apple-itunes-app" content="app-id=0000000000">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/appicon.png">
     <link rel="apple-touch-icon" href="assets/appicon.png">
+    <link rel="preconnect" href="https://eu.i.posthog.com">
+    <script>
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing startSessionRecording stopSessionRecording isSessionRecordingStarted".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+        posthog.init('phc_ztIjBWZp495eGWUZSUprsXSLzyElBWMcf2xc65kKfE5', {
+            api_host: 'https://eu.i.posthog.com',
+            person_profiles: 'anonymous',
+            persistence: 'memory'
+        });
+        posthog.register({ app_name: 'rise_web' });
+    </script>
     <script>
         (function() {
             var theme = localStorage.getItem('theme');
@@ -730,7 +740,7 @@
             <a href="#pricing">Pricing</a>
         </div>
         <div class="nav-right">
-            <a href="https://apps.apple.com/app/id0000000000" class="nav-download" id="nav-download">Download</a>
+            <a href="https://apps.apple.com/app/id0000000000" class="nav-download" id="nav-download" onclick="posthog.capture('nav_app_store_click')">Download</a>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -749,7 +759,7 @@
                 <p class="hero-subtitle">Rise guides you through a calm, structured morning, from alarm to focus session, so you can start every day intentionally.</p>
                 <p class="hero-pricing">Free to try. <strong>Subscription unlocks everything.</strong></p>
                 <div class="hero-buttons">
-                    <a href="https://apps.apple.com/app/id0000000000" class="app-store-badge" id="hero-download">
+                    <a href="https://apps.apple.com/app/id0000000000" class="app-store-badge" id="hero-download" onclick="posthog.capture('hero_app_store_click')">
                         <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
                     </a>
                 </div>
@@ -934,7 +944,7 @@
         <h2 class="section-title fade-in">Start your mornings right</h2>
         <p class="section-subtitle fade-in">Your morning sets the tone for your entire day. Make it count.</p>
         <div class="fade-in">
-            <a href="https://apps.apple.com/app/id0000000000" class="app-store-badge" id="footer-download">
+            <a href="https://apps.apple.com/app/id0000000000" class="app-store-badge" id="footer-download" onclick="posthog.capture('footer_app_store_click')">
                 <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store">
             </a>
         </div>
