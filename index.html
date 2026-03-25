@@ -19,7 +19,9 @@
     <meta name="twitter:title" content="Rise - Your Morning Ritual, Reinvented">
     <meta name="twitter:description" content="Smart alarms, focus timers, and streak tracking. Build a morning routine that sticks.">
     <meta name="twitter:image" content="https://risemorning.app/assets/ogshare.png">
-    <meta name="apple-itunes-app" content="app-id=0000000000">
+    <meta property="og:locale" content="en_US">
+    <meta name="theme-color" content="#D4882A">
+    <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" type="image/png" sizes="192x192" href="assets/appicon.png">
     <link rel="apple-touch-icon" href="assets/appicon.png">
     <link rel="preconnect" href="https://eu.i.posthog.com">
@@ -274,6 +276,25 @@
             height: 52px;
         }
 
+        .coming-soon {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .coming-soon svg {
+            width: 20px;
+            height: 20px;
+        }
+
         .hero-image {
             flex-shrink: 0;
         }
@@ -296,7 +317,10 @@
         }
 
         .screenshots-strip img {
-            width: 220px;
+            width: auto;
+            height: 420px;
+            border-radius: 24px;
+            object-fit: contain;
             transition: transform 0.3s;
         }
 
@@ -659,7 +683,7 @@
             .hero-title { font-size: 40px; }
             .hero-buttons { justify-content: center; }
             .hero-phone { width: 200px; border-radius: 28px; }
-            .screenshots-strip img { width: 180px; border-radius: 20px; }
+            .screenshots-strip img { height: 360px; border-radius: 20px; }
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -673,14 +697,14 @@
             .features-grid { grid-template-columns: repeat(2, 1fr); }
             .steps-grid { grid-template-columns: 1fr 1fr; }
             .screenshots-strip { gap: 16px; }
-            .screenshots-strip img { width: 150px; border-radius: 18px; }
+            .screenshots-strip img { height: 300px; border-radius: 18px; }
         }
 
         @media (max-width: 600px) {
             .features-grid { grid-template-columns: 1fr; }
             .pricing-cards { grid-template-columns: 1fr; }
             .steps-grid { grid-template-columns: 1fr; }
-            .screenshots-strip img { width: 130px; border-radius: 16px; }
+            .screenshots-strip img { height: 260px; border-radius: 16px; }
         }
 
         @media (max-width: 480px) {
@@ -689,7 +713,7 @@
             .section-title { font-size: 24px; }
             .pricing-amount { font-size: 36px; }
             .screenshots-strip { gap: 12px; }
-            .screenshots-strip img { width: 110px; border-radius: 14px; }
+            .screenshots-strip img { height: 220px; border-radius: 14px; }
         }
 
         /* Schema.org */
@@ -701,9 +725,17 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Rise",
-        "description": "Build a powerful morning routine with smart alarms, focus timers, and streak tracking.",
+        "description": "Build a powerful morning routine with smart alarms, focus timers, and streak tracking. Wake up with purpose every single day.",
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "iOS",
+        "availableOnDevice": "iPhone, iPad",
+        "url": "https://risemorning.app/",
+        "screenshot": [
+            "https://risemorning.app/assets/screenshot-home.png",
+            "https://risemorning.app/assets/screenshot-alarm.png",
+            "https://risemorning.app/assets/screenshot-focus.png",
+            "https://risemorning.app/assets/screenshot-streak.png"
+        ],
         "offers": [
             {
                 "@type": "Offer",
@@ -740,7 +772,7 @@
             <a href="#pricing">Pricing</a>
         </div>
         <div class="nav-right">
-            <a href="https://apps.apple.com/app/id0000000000" class="nav-download" id="nav-download" onclick="posthog.capture('nav_app_store_click')">Download</a>
+            <span class="nav-download" style="cursor: default; opacity: 0.8;">Coming Soon</span>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -755,17 +787,18 @@
         <div class="hero-inner">
             <div class="hero-content">
                 <p class="hero-label">Morning Routine App</p>
-                <h1 class="hero-title">Wake up with <span class="highlight">purpose.</span></h1>
+                <h1 class="hero-title">Your morning routine, <span class="highlight">reinvented.</span></h1>
                 <p class="hero-subtitle">Rise guides you through a calm, structured morning, from alarm to focus session, so you can start every day intentionally.</p>
                 <p class="hero-pricing">Free to try. <strong>Subscription unlocks everything.</strong></p>
                 <div class="hero-buttons">
-                    <a href="https://apps.apple.com/app/id0000000000" class="app-store-badge" id="hero-download" onclick="posthog.capture('hero_app_store_click')">
-                        <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83" alt="Download on the App Store">
-                    </a>
+                    <span class="coming-soon">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        Coming soon to iOS
+                    </span>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="assets/screenshot-home.png" alt="Rise app home screen showing morning routine" class="hero-phone">
+                <img src="assets/screenshot-home.png" alt="Rise morning routine app home screen with alarm, focus timer, and streak tracker" class="hero-phone">
             </div>
         </div>
     </div>
@@ -812,10 +845,10 @@
         <p class="section-subtitle">Clean interface, warm tones, and zero distractions.</p>
     </div>
     <div class="screenshots-strip fade-in">
-        <img src="assets/screenshot-alarm.png" alt="Rise alarm screen">
-        <img src="assets/screenshot-focus.png" alt="Rise focus timer">
-        <img src="assets/screenshot-streak.png" alt="Rise streak tracking calendar">
-        <img src="assets/screenshot-winddown.png" alt="Rise wind down screen">
+        <img src="assets/screenshot-alarm.png" alt="Rise app alarm screen showing wake-up time and weekly streak">
+        <img src="assets/screenshot-focus.png" alt="Rise app focus timer session for morning productivity">
+        <img src="assets/screenshot-streak.png" alt="Rise app streak tracking calendar with daily completion heatmap">
+        <img src="assets/screenshot-winddown.png" alt="Rise app evening wind-down reminder for better sleep">
     </div>
 </section>
 
@@ -944,9 +977,10 @@
         <h2 class="section-title fade-in">Start your mornings right</h2>
         <p class="section-subtitle fade-in">Your morning sets the tone for your entire day. Make it count.</p>
         <div class="fade-in">
-            <a href="https://apps.apple.com/app/id0000000000" class="app-store-badge" id="footer-download" onclick="posthog.capture('footer_app_store_click')">
-                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/en-us?size=250x83" alt="Download on the App Store">
-            </a>
+            <span class="coming-soon" style="border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7);">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Coming soon to iOS
+            </span>
         </div>
     </div>
 </section>
