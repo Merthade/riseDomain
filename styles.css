@@ -257,6 +257,8 @@ nav {
 
 .hero-phone {
     width: 280px;
+    height: auto;
+    max-width: 100%;
 }
 
 /* ---- SCREENSHOT STRIP ---- */
