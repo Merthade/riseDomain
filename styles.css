@@ -267,15 +267,21 @@ nav {
 
 .screenshots-strip {
     display: flex;
-    justify-content: center;
     gap: 24px;
-    padding: 0 24px;
+    padding: 8px 24px 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
 }
+.screenshots-strip::-webkit-scrollbar { display: none; }
+.screenshots-strip img { scroll-snap-align: center; flex: 0 0 auto; }
+.screenshots-strip img:first-child { margin-left: auto; }
+.screenshots-strip img:last-child { margin-right: auto; }
 
 .screenshots-strip img {
     width: auto;
     height: 420px;
-    border-radius: 24px;
+    filter: drop-shadow(0 12px 24px rgba(0,0,0,0.20));
     object-fit: contain;
     transition: transform 0.3s;
 }
@@ -638,8 +644,8 @@ footer {
     .hero-content { max-width: 100%; }
     .hero-title { font-size: 40px; }
     .hero-buttons { justify-content: center; }
-    .hero-phone { width: 200px; border-radius: 28px; }
-    .screenshots-strip img { height: 360px; border-radius: 20px; }
+    .hero-phone { width: 200px; }
+    .screenshots-strip img { height: 360px; }
     .steps-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -653,7 +659,7 @@ footer {
     .features-grid { grid-template-columns: repeat(2, 1fr); }
     .steps-grid { grid-template-columns: 1fr 1fr; }
     .screenshots-strip { gap: 16px; }
-    .screenshots-strip img { height: 300px; border-radius: 18px; }
+    .screenshots-strip img { height: 300px; }
 }
 
 @media (max-width: 600px) {
@@ -665,7 +671,7 @@ footer {
 
 @media (max-width: 480px) {
     .hero-title { font-size: 30px; }
-    .hero-phone { width: 160px; border-radius: 24px; }
+    .hero-phone { width: 160px; }
     .section-title { font-size: 24px; }
     .pricing-amount { font-size: 36px; }
     .screenshots-strip { gap: 12px; }
@@ -696,7 +702,7 @@ a { color: var(--accent); }
 }
 .quick-answer p { margin: 0; font-size: 16px; }
 .article figure { margin: 28px auto; max-width: 300px; }
-.article figure img { width: 100%; height: auto; border-radius: 28px; box-shadow: 0 18px 40px rgba(0,0,0,0.18); }
+.article figure img { width: 100%; height: auto; filter: drop-shadow(0 18px 32px rgba(0,0,0,0.22)); }
 .article figcaption { font-size: 13.5px; color: var(--text-tertiary); text-align: center; margin-top: 12px; }
 .note-box {
     background: var(--card-bg); border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0;

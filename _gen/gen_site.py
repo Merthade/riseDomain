@@ -145,7 +145,7 @@ def ld(obj):
 
 def fig(src, alt, cap):
     return f"""<figure>
-  <img src="/assets/{src}" alt="{alt}" loading="lazy">
+  <img src="/assets/{src}" alt="{alt}" loading="lazy" width="600" height="1203">
   <figcaption>{cap}</figcaption>
 </figure>"""
 
@@ -199,7 +199,7 @@ body=f"""
   <li>Pick a length, 5 minutes is enough on a hard morning, and start. The session runs on your Lock Screen as a Live Activity, so you can put the phone down.</li>
   <li>Finish it and your streak grows by a day. That small win is what you are trading the snooze for.</li>
 </ol>
-{fig("screenshot-alarm.png", "Rise wake-up screen after the alarm, with a focus timer length picker", "Stopping the alarm opens a short session, not your inbox.")}
+{fig("shot-wake.webp", "Rise wake-up screen after the alarm, with a focus length slider", "Stopping the alarm opens a short session, not your inbox.")}
 
 <h2>Should you remove snooze completely?</h2>
 <p>For some people, yes. If you snooze by reflex, a single alarm with no snooze forces the decision once. For others a single snooze is a buffer they actually use. The useful test is simple: if you snooze more than once on most days, the snooze is not helping you wake up, it is postponing the decision.</p>
@@ -238,7 +238,7 @@ body=f"""
   <li>If you stopped the alarm and fell back asleep instead, the check rings: "Are you still up?"</li>
 </ol>
 <p>If you snooze, the check waits for the snooze too, so it never rings on top of a snooze you chose on purpose. The wake-up check is part of Rise Pro.</p>
-{fig("screenshot-home.png", "Rise Home screen with the alarm time and the wake-up check toggle", "The wake-up check sits next to your alarm on the Home screen.")}
+{fig("shot-home.webp", "Rise Home screen with the alarm time and the wake-up check toggle", "The wake-up check sits next to your alarm on the Home screen.")}
 
 <h2>Does it ring on Silent?</h2>
 <p>Yes. Both the wake-up alarm and the wake-up check are system alarms built on Apple's AlarmKit, so they ring through the Silent switch, Do Not Disturb and Focus modes, the same way the Clock app's alarms do.</p>
@@ -275,7 +275,7 @@ body=f"""
   <li>The countdown stays on the Lock Screen and in the Dynamic Island, so the phone can go face down on the table.</li>
   <li>When the session ends, the day is yours. You checked the phone exactly once, to start the timer.</li>
 </ol>
-{fig("screenshot-focus.png", "Rise focus session timer running in the morning", "A timed session gives the first minutes a job.")}
+{fig("shot-timer.webp", "Rise focus session timer running in the morning", "A timed session gives the first minutes a job.")}
 
 <h2>What to do in that first session</h2>
 <p>Anything that is yours and not a feed: read, journal, stretch, meditate, plan the day on paper, drink a coffee by the window. Five minutes counts. The point is that the day starts with something you chose.</p>
@@ -306,7 +306,7 @@ body=f"""
   <li>Start, then lock the phone. The countdown keeps running on the Lock Screen and in the Dynamic Island.</li>
   <li>When it ends, it counts as your session for the day and, with Pro, is saved as mindful minutes in Apple Health.</li>
 </ol>
-{fig("screenshot-focus.png", "Rise focus timer counting down during a session", "The same countdown follows you to the Lock Screen.")}
+{fig("shot-timer.webp", "Rise focus timer counting down during a session", "The same countdown follows you to the Lock Screen.")}
 
 <h2>Does Rise do Pomodoro?</h2>
 <p>Rise runs one focused block at a time, any length you pick, rather than a fixed 25/5 Pomodoro cycle. If you like Pomodoro, set 25 minutes, take your break, and start another. Many people find that one longer morning block suits deep work better than strict intervals.</p>
@@ -345,7 +345,7 @@ body=f"""
   <li>With Pro, a streak freeze covers one missed day per week, so a sick day does not wipe out a month.</li>
   <li>Milestones unlock titles like Early Bird or Routinist, shown in your morning greeting.</li>
 </ul>
-{fig("screenshot-streak.png", "Rise streak calendar showing completed mornings", "A streak makes the habit visible, and freezes keep one bad day from erasing it.")}
+{fig("shot-streak.webp", "Rise progress screen with a 30-day streak calendar", "A streak makes the habit visible, and freezes keep one bad day from erasing it.")}
 
 <h2>How long until it feels automatic?</h2>
 <p>Longer than the popular "21 days". Research on habit formation puts the typical range at a couple of months, with wide variation between people and habits. That is another argument for starting small: a routine you can keep for 60 days beats an ambitious one you keep for 6.</p>
@@ -390,7 +390,7 @@ body=f"""
   <li>The timer runs on the Lock Screen, so the phone can stay face down while you read.</li>
   <li>Each completed morning adds to your streak, a simple visual of your run.</li>
 </ol>
-{fig("screenshot-focus.png", "Rise focus timer used as a reading block", "A timed block for the 10 pages, before the phone gets a say.")}
+{fig("shot-timer.webp", "Rise focus timer used as a reading block", "A timed block for the 10 pages, before the phone gets a say.")}
 <div class="note-box">Be honest with the streak. 75 Hard has no freezes: a missed task means day one. Rise Pro's streak freeze is for normal routines; leave it unused during the challenge.</div>
 """,
 cross=f"""Two workouts a day means alarms on different days and times. <a href="{AP}/guides/group-organize-alarms-iphone/" data-ph="crosssell_alarmplanner">Alarm Clock Planner groups alarms with tags</a>, so a whole training block can be switched on or off at once.""",
@@ -429,7 +429,7 @@ body=f"""
   <li>Start a new session for each of the next two blocks with Focus now, or use one 60-minute session for the whole hour.</li>
   <li>The streak counts every morning you complete, and the early-wake titles mark wake-ups before 8, 7, 6, 5 and 4 AM.</li>
 </ol>
-{fig("screenshot-alarm.png", "Rise alarm set for an early wake-up", "One alarm at 5, then the first timed block.")}
+{fig("shot-ringing.webp", "Rise alarm ringing on the Lock Screen at 5:00", "One alarm at 5, then the first timed block.")}
 
 <h2>Do you have to wake at exactly 5?</h2>
 <p>No. The value is in having a protected hour before the day's demands start, not in the number on the clock. A 6:30 version of the same structure works the same way if that is when your house is quiet.</p>
@@ -466,7 +466,7 @@ body=f"""
   <li>Choose a length. Up to 10 minutes is free; Pro offers up to 30.</li>
   <li>The session runs on the Lock Screen as a Live Activity, so you can put the phone down and let the sound play.</li>
 </ol>
-{fig("screenshot-winddown.png", "Rise Wind Down evening session with ambient sound", "A timed evening session with calming sound.")}
+{fig("shot-winddown.webp", "Rise Wind Down evening session with ambient sound", "A timed evening session with calming sound.")}
 
 <h2>Should the phone be in the bedroom?</h2>
 <p>If it is your alarm, it probably will be. Then make it boring: Sleep Focus on, notifications off, face down, out of reach. The alarm will still ring.</p>
