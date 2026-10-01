@@ -63,7 +63,18 @@ def add_dynamic_island(img):
     k = w / 440
     iw, ih, top = 125 * k, 37 * k, 11 * k
     x0 = (w - iw) / 2
-    ImageDraw.Draw(img).rounded_rectangle([x0, top, x0 + iw, top + ih], radius=ih / 2, fill=(0, 0, 0, 255))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([x0, top, x0 + iw, top + ih], radius=ih / 2, fill=(0, 0, 0, 255))
+    # Front camera: a ~12 pt lens near the island's right end, a dark ring with a faint
+    # blue-violet core and a tiny highlight, so it reads at thumbnail size.
+    cx, cy, r = x0 + iw - 18.5 * k, top + ih / 2, 6 * k
+    d.ellipse([cx - r, cy - r, cx + r, cy + r], fill=(18, 18, 26, 255))
+    r2 = r * 0.62
+    d.ellipse([cx - r2, cy - r2, cx + r2, cy + r2], fill=(10, 12, 30, 255))
+    r3 = r * 0.30
+    d.ellipse([cx - r3, cy - r3, cx + r3, cy + r3], fill=(28, 34, 72, 255))
+    h = r * 0.16
+    d.ellipse([cx - r * 0.35 - h, cy - r * 0.35 - h, cx - r * 0.35 + h, cy - r * 0.35 + h], fill=(70, 80, 120, 255))
     return img
 
 

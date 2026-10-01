@@ -145,7 +145,7 @@ def ld(obj):
 
 def fig(src, alt, cap):
     return f"""<figure>
-  <img src="/assets/{src}?v=2" alt="{alt}" loading="lazy" width="600" height="1203">
+  <img src="/assets/{src}?v=3" alt="{alt}" loading="lazy" width="600" height="1203">
   <figcaption>{cap}</figcaption>
 </figure>"""
 
