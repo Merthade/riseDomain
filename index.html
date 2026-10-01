@@ -51,7 +51,7 @@
         "description": "An alarm that leads straight into a focus session. Rings on Silent, focus timer on the Lock Screen, a daily streak, and an evening wind-down.",
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "iOS",
-        "availableOnDevice": "iPhone, iPad",
+        "availableOnDevice": "iPhone",
         "url": "https://risemorning.app/",
         "screenshot": [
             "https://risemorning.app/assets/shot-home.webp",
@@ -83,7 +83,7 @@
       "name": "Does Rise's alarm ring on Silent mode?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Rise uses Apple's AlarmKit, the same system alarms the Clock app uses, so your alarm rings through the Silent switch, Do Not Disturb and Focus modes. It needs iOS 26.2 or later."
+        "text": "Yes. Rise uses Apple's AlarmKit, the framework for real system alarms, so your alarm rings in Silent mode and through Do Not Disturb and Focus. It needs iOS 26.2 or later."
       }
     },
     {
@@ -91,7 +91,7 @@
       "name": "What happens after the alarm rings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Stopping the alarm opens Rise's wake-up screen with a focus timer. Pick a length and start a session: read, journal, stretch, or just sit with a coffee. Finishing it adds a day to your streak."
+        "text": "The alarm has one button, Stop, and stopping it opens Rise's wake-up screen with a focus timer. Pick a length and start a session: read, journal, stretch, or just sit with a coffee. Finishing it adds a day to your streak."
       }
     },
     {
@@ -99,7 +99,7 @@
       "name": "Can I use the focus timer outside the morning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Focus now on the Home screen starts a session at any hour of the day."
+        "text": "Yes. If you have not had a session yet today, Focus now on the Home screen starts one at any hour."
       }
     },
     {
@@ -115,7 +115,7 @@
       "name": "What is free and what is Pro?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Free: the alarm, focus sessions of 5, 10 or 15 minutes, Wind Down up to 10 minutes, your streak, the Beginner title, Live Activities and iCloud backup. Pro adds sessions up to 120 minutes, the wake-up check, streak history and freezes, reflections, all titles, Apple Health and longer Wind Down. Pro is a yearly plan with a 7-day free trial, or a one-time Lifetime purchase."
+        "text": "Free: the alarm, focus sessions of 5, 10 or 15 minutes, Wind Down up to 10 minutes, your streak, the Beginner title, Live Activities, the Home Screen widgets and iCloud backup. Pro adds sessions up to 120 minutes, the wake-up check, streak history and freezes, reflections, all titles, Apple Health and longer Wind Down. Pro is a yearly plan with a 7-day free trial, or a one-time Lifetime purchase."
       }
     },
     {
@@ -123,7 +123,7 @@
       "name": "What if I miss a morning?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Your streak resets, unless you have Pro, which gives you one streak freeze per week to cover a missed day."
+        "text": "Your streak resets. With Pro you can freeze it once a week: tap the freeze on a day you cannot make it and the streak holds."
       }
     },
     {
@@ -131,7 +131,7 @@
       "name": "Does Rise work on iPad?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, Rise runs on iPhone and iPad with iOS 26.2 or later."
+        "text": "Rise is designed for iPhone. You can also install it on an iPad, where it runs as an iPhone app."
       }
     },
     {
@@ -208,7 +208,7 @@
             <div class="step-card fade-in">
                 <div class="step-number">1</div>
                 <h3>Alarm</h3>
-                <p>Set your wake time. Rise uses real system alarms that ring through Silent mode and Focus.</p>
+                <p>Set your wake time. Rise uses real system alarms that ring in Silent mode and through Focus.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">2</div>
@@ -218,7 +218,7 @@
             <div class="step-card fade-in">
                 <div class="step-number">3</div>
                 <h3>Reflect</h3>
-                <p>Capture one thought from the morning. Look back on what you wrote weeks later.</p>
+                <p>A short prompt about your morning closes each session. With Pro, write an answer and look back on it later.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">4</div>
@@ -260,14 +260,14 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
                 </div>
                 <h3>Smart Alarms</h3>
-                <p>Real system-level alarms powered by AlarmKit. They ring on time, even in silent mode.</p>
+                <p>Real system alarms powered by Apple's AlarmKit. They ring on time, even in Silent mode.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <h3>Focus Sessions</h3>
-                <p>5 to 15 minutes free, up to 120 with Pro. Start one after your alarm, or any time of day with Focus now.</p>
+                <p>5 to 15 minutes free, up to 120 with Pro. Start one after your alarm, or later in the day with Focus now.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">
@@ -281,28 +281,28 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                 </div>
                 <h3>Streak Tracking</h3>
-                <p>Build momentum every morning. Calendar history, milestone titles, and streak freezes for the days life gets in the way.</p>
+                <p>Build momentum every morning. With Pro: calendar history, and a weekly streak freeze for the days life gets in the way.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                 </div>
                 <h3>40+ Identity Titles</h3>
-                <p>Earn titles for your routine. Early Bird, Marathoner, Routinist, and more. One worn at a time in your morning greeting.</p>
+                <p>Earn titles for your routine, like Early Bird, Marathoner and Routinist, worn in your morning greeting. Beginner is free, the other 45 come with Pro.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                 </div>
                 <h3>Reflection Journal</h3>
-                <p>An optional thought at the end of each session. Quietly stacks up so you can look back weeks later.</p>
+                <p>With Pro, write an optional thought at the end of each session. They stack up so you can look back weeks later.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                 </div>
                 <h3>Apple Health</h3>
-                <p>Records your wake times and focus sessions to Health. Your morning data, alongside everything else.</p>
+                <p>With Pro, Rise records your wake-up time in Apple Health and saves each focus session as mindful minutes.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">
@@ -316,7 +316,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                 </div>
                 <h3>Widgets &amp; Live Activities</h3>
-                <p>Streak and next alarm on your Home or Lock Screen. The focus timer counts down on the Lock Screen and Dynamic Island.</p>
+                <p>Streak and next-alarm widgets for your Home Screen. The focus timer counts down on the Lock Screen and in the Dynamic Island.</p>
             </div>
         </div>
     </div>
@@ -413,15 +413,15 @@
 <!-- FAQ:START -->
             <details>
               <summary>Does Rise's alarm ring on Silent mode?</summary>
-              <p>Yes. Rise uses Apple's AlarmKit, the same system alarms the Clock app uses, so your alarm rings through the Silent switch, Do Not Disturb and Focus modes. It needs iOS 26.2 or later. <a href="/guides/how-to-not-fall-back-asleep-after-alarm/">Read the guide</a></p>
+              <p>Yes. Rise uses Apple's AlarmKit, the framework for real system alarms, so your alarm rings in Silent mode and through Do Not Disturb and Focus. It needs iOS 26.2 or later. <a href="/guides/how-to-not-fall-back-asleep-after-alarm/">Read the guide</a></p>
             </details>
             <details>
               <summary>What happens after the alarm rings?</summary>
-              <p>Stopping the alarm opens Rise's wake-up screen with a focus timer. Pick a length and start a session: read, journal, stretch, or just sit with a coffee. Finishing it adds a day to your streak. <a href="/guides/how-to-stop-snoozing-your-alarm/">Read the guide</a></p>
+              <p>The alarm has one button, Stop, and stopping it opens Rise's wake-up screen with a focus timer. Pick a length and start a session: read, journal, stretch, or just sit with a coffee. Finishing it adds a day to your streak. <a href="/guides/how-to-stop-snoozing-your-alarm/">Read the guide</a></p>
             </details>
             <details>
               <summary>Can I use the focus timer outside the morning?</summary>
-              <p>Yes. Focus now on the Home screen starts a session at any hour of the day. <a href="/guides/focus-timer-lock-screen-iphone/">Read the guide</a></p>
+              <p>Yes. If you have not had a session yet today, Focus now on the Home screen starts one at any hour. <a href="/guides/focus-timer-lock-screen-iphone/">Read the guide</a></p>
             </details>
             <details>
               <summary>What is the wake-up check?</summary>
@@ -429,15 +429,15 @@
             </details>
             <details>
               <summary>What is free and what is Pro?</summary>
-              <p>Free: the alarm, focus sessions of 5, 10 or 15 minutes, Wind Down up to 10 minutes, your streak, the Beginner title, Live Activities and iCloud backup. Pro adds sessions up to 120 minutes, the wake-up check, streak history and freezes, reflections, all titles, Apple Health and longer Wind Down. Pro is a yearly plan with a 7-day free trial, or a one-time Lifetime purchase.</p>
+              <p>Free: the alarm, focus sessions of 5, 10 or 15 minutes, Wind Down up to 10 minutes, your streak, the Beginner title, Live Activities, the Home Screen widgets and iCloud backup. Pro adds sessions up to 120 minutes, the wake-up check, streak history and freezes, reflections, all titles, Apple Health and longer Wind Down. Pro is a yearly plan with a 7-day free trial, or a one-time Lifetime purchase.</p>
             </details>
             <details>
               <summary>What if I miss a morning?</summary>
-              <p>Your streak resets, unless you have Pro, which gives you one streak freeze per week to cover a missed day. <a href="/guides/build-a-morning-routine-that-sticks/">Read the guide</a></p>
+              <p>Your streak resets. With Pro you can freeze it once a week: tap the freeze on a day you cannot make it and the streak holds. <a href="/guides/build-a-morning-routine-that-sticks/">Read the guide</a></p>
             </details>
             <details>
               <summary>Does Rise work on iPad?</summary>
-              <p>Yes, Rise runs on iPhone and iPad with iOS 26.2 or later.</p>
+              <p>Rise is designed for iPhone. You can also install it on an iPad, where it runs as an iPhone app.</p>
             </details>
             <details>
               <summary>Do I need an account?</summary>

@@ -157,16 +157,26 @@ def cross(text):
 
 # ------------------------------------------------------------------------------------------
 # Guides. Facts every page may rely on (Rise 1.33):
-# - Alarm: AlarmKit system alarm, rings through Silent and Focus. Snooze exists.
+# - Alarm: AlarmKit system alarm, rings through Silent and Focus. The alert has ONLY Stop, no
+#   snooze button (removed 2026-09-26); an optional snooze lives on the Home screen.
+# - iPhone app (TARGETED_DEVICE_FAMILY 1); installs on iPad in iPhone mode. iOS 26.2+.
+# - Widgets: Home Screen only (systemSmall). Lock Screen = Live Activities, not widgets.
+# - Restore Purchases is on the Pro screen (paywall), not a Settings row.
+# - iCloud backup is a toggle in Settings; a new install offers Restore from Backup.
 # - Stopping the alarm opens the wake-up screen: pick a focus length, start the session.
-# - Focus: free 5/10/15 min, Pro 5-120 min + extend +5/+15/+30. Any hour via Focus now.
+# - Focus: free 5/10/15 min, Pro 5-120 min + extend +5/+15/+30. Focus now on Home starts one
+#   at any hour if today's session is not done yet (one session per day).
 #   Live Activity on the Lock Screen + Dynamic Island (free).
 # - Wake-up check (Pro): a second alarm "Are you still up?" 5, 10 or 20 min after the alarm,
 #   only if no focus session has started; starting one moves it to tomorrow.
-# - Streak: free number; Pro history + freezes (one per 7 days).
-# - Wind Down: ambient sounds (fireplace, rain, thunderstorm, waves, white noise, space ship),
-#   free up to 10 min, Pro up to 30. Live Activity.
-# - Reflection: prompt free, typing Pro. Titles: Beginner free, 45 more Pro.
+# - Streak: free number; Pro history + freezes (tapped manually, one per 7 days).
+# - Wind Down (opens in the evening): sounds Fireplace, Space Ship, Storm, Waves, White Noise.
+#   Free up to 10 min, Pro up to 30. Live Activity.
+# - Reflection: prompt free, typing Pro. Titles: Beginner free, 45 more Pro. Early-wake titles
+#   unlock by STARTING a focus session by 8/7/6/5/4 AM (Early Riser, Sun Chaser, Early Bird...).
+# - iOS facts (checked 2026-10-01): iOS 26 Clock has per-alarm snooze 1-15 min (default 9) and
+#   Snooze can be switched off; iOS 27 adds separate alarm volume only. Clock still has no date
+#   alarms. Not every iPhone has a Dynamic Island.
 # - Apple Health (Pro): wake time + mindful minutes. iCloud backup free.
 # ------------------------------------------------------------------------------------------
 PAGES = [
@@ -175,12 +185,12 @@ slug="how-to-stop-snoozing-your-alarm",
 title="How to Stop Snoozing Your Alarm (and Actually Get Up)",
 meta="Snoozing is a habit loop, not a character flaw. Why it happens, what helps, and how to give the first minute after your alarm a job so you stop hitting snooze.",
 h1="How to Stop Snoozing Your Alarm and Actually Get Up",
-lede="The alarm goes off, your thumb finds the snooze button before your brain is awake, and nine minutes later you do it again. Here is how to break the loop.",
+lede="The alarm goes off, your thumb finds the snooze button before your brain is awake, and a few minutes later you do it again. Here is how to break the loop.",
 quick="""<strong>Quick answer:</strong> Snoozing sticks because the moment after the alarm has no plan, so going back to sleep wins by default. Give that moment a job: put the phone out of reach, decide the night before what the first five minutes are, and use an alarm that leads straight into a short timed session, like <a href="/">Rise</a>, instead of back to the lock screen.""",
 body=f"""
 <h2>Why you keep hitting snooze</h2>
-<p>Right after waking, the brain is in a state called sleep inertia: slower reaction times, foggy decisions, a strong pull back to sleep. That fog lasts anywhere from a few minutes to half an hour. It is exactly the window in which the snooze button asks you to make a decision, and a foggy brain picks the option that requires nothing.</p>
-<p>Snoozing also does not buy you real rest. Nine minutes is too short to get back into deep sleep, so what you collect is a series of interrupted light naps. Most people feel worse after three snoozes than they would have felt getting up on the first alarm.</p>
+<p>Right after waking, the brain is in a state called sleep inertia: slower reaction times, foggy decisions, a strong pull back to sleep. That fog usually lasts 15 to 30 minutes, sometimes longer. It is exactly the window in which the snooze button asks you to make a decision, and a foggy brain picks the option that requires nothing.</p>
+<p>Snoozing also does not buy you real rest. A snooze of a few minutes, nine by default on iPhone, is too short to get back into deep sleep, so what you collect is a series of interrupted light naps. Most people feel worse after three snoozes than they would have felt getting up on the first alarm.</p>
 
 <h2>What actually helps</h2>
 <ol>
@@ -192,20 +202,20 @@ body=f"""
 </ol>
 
 <h2>Give the alarm a next step</h2>
-<p>The built-in Clock app ends at "Stop". Rise was built around what comes after:</p>
+<p>The built-in Clock app gives you Stop or Snooze, and either way you land back on the lock screen. Rise was built around what comes after:</p>
 <ol>
   <li>Set your wake-up alarm in Rise. It is a real system alarm, so it rings through Silent mode and Focus.</li>
-  <li>When it rings and you stop it, Rise opens straight onto the wake-up screen with a focus timer, not onto your notifications.</li>
+  <li>The alarm has one button, Stop. There is no snooze on it. Stopping it opens Rise straight onto the wake-up screen with a focus timer, not onto your notifications.</li>
   <li>Pick a length, 5 minutes is enough on a hard morning, and start. The session runs on your Lock Screen as a Live Activity, so you can put the phone down.</li>
   <li>Finish it and your streak grows by a day. That small win is what you are trading the snooze for.</li>
 </ol>
 {fig("shot-wake.webp", "Rise wake-up screen after the alarm, with a focus length slider", "Stopping the alarm opens a short session, not your inbox.")}
 
 <h2>Should you remove snooze completely?</h2>
-<p>For some people, yes. If you snooze by reflex, a single alarm with no snooze forces the decision once. For others a single snooze is a buffer they actually use. The useful test is simple: if you snooze more than once on most days, the snooze is not helping you wake up, it is postponing the decision.</p>
+<p>For some people, yes. If you snooze by reflex, an alarm with no snooze forces the decision once. In the Clock app you can switch Snooze off per alarm, and since iOS 26 you can also set its length from 1 to 15 minutes. For others a single snooze is a buffer they actually use. The useful test is simple: if you snooze more than once on most days, the snooze is not helping you wake up, it is postponing the decision.</p>
 <div class="note-box">If you tend to stop the alarm and drift off again, Rise Pro can ring a second time, 5, 10 or 20 minutes later, but only if you have not started your session yet. See <a href="/guides/how-to-not-fall-back-asleep-after-alarm/">how to stop falling back asleep after your alarm</a>.</div>
 """,
-cross=f"""Want a different snooze length instead? <a href="{AP}/guides/change-snooze-time-iphone/" data-ph="crosssell_alarmplanner">Alarm Clock Planner lets you change the snooze time</a>, which the iPhone Clock app does not.""",
+cross=f"""Need a wake-up alarm for one specific date, like an early flight? <a href="{AP}/guides/alarm-for-a-flight/" data-ph="crosssell_alarmplanner">Alarm Clock Planner</a>, from the same maker, sets alarms for any future date, which the Clock app cannot.""",
 related=["how-to-not-fall-back-asleep-after-alarm", "stop-checking-phone-in-the-morning", "build-a-morning-routine-that-sticks"],
 cta_h="Make the alarm the start of something",
 cta_p="Alarm, then a short focus session. Free to try.",
@@ -237,13 +247,13 @@ body=f"""
   <li>Starting the session moves the check to tomorrow. Nothing else rings.</li>
   <li>If you stopped the alarm and fell back asleep instead, the check rings: "Are you still up?"</li>
 </ol>
-<p>If you snooze, the check waits for the snooze too, so it never rings on top of a snooze you chose on purpose. The wake-up check is part of Rise Pro.</p>
+<p>The alarm itself has no snooze button. If you set a snooze on purpose from Rise's Home screen, the check waits until after it, so the two never ring on top of each other. The wake-up check is part of Rise Pro.</p>
 {fig("shot-home.webp", "Rise Home screen with the alarm time and the wake-up check toggle", "The wake-up check sits next to your alarm on the Home screen.")}
 
 <h2>Does it ring on Silent?</h2>
-<p>Yes. Both the wake-up alarm and the wake-up check are system alarms built on Apple's AlarmKit, so they ring through the Silent switch, Do Not Disturb and Focus modes, the same way the Clock app's alarms do.</p>
+<p>Yes. Both the wake-up alarm and the wake-up check are system alarms built on Apple's AlarmKit, so they ring in Silent mode and through Do Not Disturb and Focus, the same way the Clock app's alarms do.</p>
 """,
-cross=f"""Need a quick nap alarm with a timer instead? <a href="{AP}/guides/nap-alarm-iphone/" data-ph="crosssell_alarmplanner">Alarm Clock Planner has a one-tap nap alarm</a>.""",
+cross=None,
 related=["how-to-stop-snoozing-your-alarm", "build-a-morning-routine-that-sticks", "focus-timer-lock-screen-iphone"],
 cta_h="A backup alarm that knows you got up",
 cta_p="Rings again only if you went back to sleep. Part of Rise Pro, with a 7-day free trial on the yearly plan.",
@@ -261,7 +271,7 @@ body=f"""
 
 <h2>Practical ways to break it</h2>
 <ol>
-  <li><strong>Set a morning Focus mode.</strong> In Settings, Focus, create one that silences everything except calls from favourites until, say, 7:30. Your alarm still rings.</li>
+  <li><strong>Set a morning Focus mode.</strong> In Settings, Focus, create one that silences notifications and schedule it to end at, say, 7:30. Alarms still ring through Focus.</li>
   <li><strong>Charge the phone out of reach</strong>, so picking it up is a decision, not a reflex.</li>
   <li><strong>Remove the apps you open by default</strong> from the first Home Screen page.</li>
   <li><strong>Replace, do not just remove.</strong> "No phone" leaves a gap. "Ten pages of a book" or "ten minutes of stretching" fills it.</li>
@@ -272,7 +282,7 @@ body=f"""
 <ol>
   <li>Your alarm rings and you stop it.</li>
   <li>Rise opens onto a focus timer instead of your notifications. Choose a length and start.</li>
-  <li>The countdown stays on the Lock Screen and in the Dynamic Island, so the phone can go face down on the table.</li>
+  <li>The countdown stays on the Lock Screen as a Live Activity, and in the Dynamic Island on iPhones that have one, so the phone can go face down on the table.</li>
   <li>When the session ends, the day is yours. You checked the phone exactly once, to start the timer.</li>
 </ol>
 {fig("shot-timer.webp", "Rise focus session timer running in the morning", "A timed session gives the first minutes a job.")}
@@ -291,7 +301,7 @@ title="How to Keep a Focus Timer on Your iPhone Lock Screen",
 meta="See your focus or Pomodoro countdown on the Lock Screen and Dynamic Island without unlocking the phone. How Live Activity timers work and how to set one up.",
 h1="How to Keep a Focus Timer on Your iPhone Lock Screen",
 lede="A timer you have to unlock the phone to check is a timer that pulls you back into the phone. A Lock Screen countdown solves that.",
-quick="""<strong>Quick answer:</strong> Timers that use Live Activities show a live countdown on the Lock Screen and in the Dynamic Island. The Clock app's timer does this for a single countdown. For a focus session with its own length, streak and history, <a href="/">Rise</a> runs its focus timer as a Live Activity, free, for 5 to 120 minutes.""",
+quick="""<strong>Quick answer:</strong> Timers that use Live Activities show a live countdown on the Lock Screen, and in the Dynamic Island on iPhones that have one. The Clock app's timer does this for a single countdown. For a focus session with its own length, streak and history, <a href="/">Rise</a> runs its focus timer as a Live Activity, free, for 5 to 120 minutes.""",
 body=f"""
 <h2>What a Live Activity is</h2>
 <p>Live Activities are the live-updating panels iOS shows on the Lock Screen and in the Dynamic Island: a delivery on its way, a sports score, a running timer. They update without you opening the app, which makes them ideal for a focus timer: you can glance at the time left without unlocking anything.</p>
@@ -301,9 +311,9 @@ body=f"""
 
 <h2>A focus timer built for it</h2>
 <ol>
-  <li>Open Rise and tap Focus now, at any hour, or start from your morning alarm.</li>
+  <li>Start from your morning alarm, or tap Focus now on the Home screen at any other hour (one session per day).</li>
   <li>Choose a length with the slider. 5, 10 and 15 minutes are free; Pro goes up to 120 and lets you extend a running session by 5, 15 or 30 minutes.</li>
-  <li>Start, then lock the phone. The countdown keeps running on the Lock Screen and in the Dynamic Island.</li>
+  <li>Start, then lock the phone. The countdown keeps running on the Lock Screen, and in the Dynamic Island if your iPhone has one.</li>
   <li>When it ends, it counts as your session for the day and, with Pro, is saved as mindful minutes in Apple Health.</li>
 </ol>
 {fig("shot-timer.webp", "Rise focus timer counting down during a session", "The same countdown follows you to the Lock Screen.")}
@@ -341,9 +351,9 @@ body=f"""
 <p>Rise turns the steps above into the app's default flow:</p>
 <ul>
   <li>Your alarm rings and leads straight into a focus session of the length you pick.</li>
-  <li>Each completed morning adds a day to your streak, shown on the Home screen and in a widget.</li>
-  <li>With Pro, a streak freeze covers one missed day per week, so a sick day does not wipe out a month.</li>
-  <li>Milestones unlock titles like Early Bird or Routinist, shown in your morning greeting.</li>
+  <li>Each completed morning adds a day to your streak, shown in the app and in a Home Screen widget.</li>
+  <li>With Pro, you can freeze your streak once a week: tap the freeze on a day you cannot do your session, and a sick day does not wipe out a month.</li>
+  <li>Milestones unlock titles like Routinist or Early Bird, shown in your morning greeting. The first one is free, the rest come with Pro.</li>
 </ul>
 {fig("shot-streak.webp", "Rise progress screen with a 30-day streak calendar", "A streak makes the habit visible, and freezes keep one bad day from erasing it.")}
 
@@ -391,9 +401,9 @@ body=f"""
   <li>Each completed morning adds to your streak, a simple visual of your run.</li>
 </ol>
 {fig("shot-timer.webp", "Rise focus timer used as a reading block", "A timed block for the 10 pages, before the phone gets a say.")}
-<div class="note-box">Be honest with the streak. 75 Hard has no freezes: a missed task means day one. Rise Pro's streak freeze is for normal routines; leave it unused during the challenge.</div>
+<div class="note-box">Be honest with the streak. 75 Hard has no freezes: a missed task means day one. Rise Pro's streak freeze is for normal routines, so leave it unused during the challenge.</div>
 """,
-cross=f"""Two workouts a day means alarms on different days and times. <a href="{AP}/guides/group-organize-alarms-iphone/" data-ph="crosssell_alarmplanner">Alarm Clock Planner groups alarms with tags</a>, so a whole training block can be switched on or off at once.""",
+cross=f"""Training alarms piling up? <a href="{AP}/guides/group-organize-alarms-iphone/" data-ph="crosssell_alarmplanner">Alarm Clock Planner</a>, from the same maker, groups alarms with tags, so a whole group can be switched off for a rest week and back on after.""",
 related=["5am-club-routine", "build-a-morning-routine-that-sticks", "focus-timer-lock-screen-iphone"],
 cta_h="Protect the reading block",
 cta_p="Wake-up alarm, then a timed session. Free to try.",
@@ -404,7 +414,7 @@ title="The 5AM Club Routine: 20/20/20 With an Alarm and a Timer",
 meta="The 5AM Club's 20/20/20 formula explained: move, reflect, grow. How to set it up on iPhone with one alarm and timed blocks, and how to make 5 AM realistic.",
 h1="The 5AM Club Routine: 20/20/20 With an Alarm and a Timer",
 lede="Robin Sharma's 5AM Club splits the first hour into three 20-minute blocks. The structure is simple. Getting up at 5 is the hard part.",
-quick="""<strong>Quick answer:</strong> The 20/20/20 formula is 20 minutes of intense movement, 20 minutes of reflection (journaling, planning, meditation) and 20 minutes of growth (reading or learning), starting at 5 AM. Set one alarm, then run each block as a timed session. In <a href="/">Rise</a>, the alarm opens straight onto a focus timer, and the streak tracks how many mornings you made it.""",
+quick="""<strong>Quick answer:</strong> The 20/20/20 formula is 20 minutes of intense movement, 20 minutes of reflection (journaling, planning, meditation) and 20 minutes of growth (reading or learning), starting at 5 AM. Set one alarm, then time the hour. In <a href="/">Rise</a>, the alarm opens straight onto a focus timer, and the streak tracks how many mornings you made it.""",
 body=f"""
 <h2>The 20/20/20 formula</h2>
 <ul>
@@ -424,17 +434,17 @@ body=f"""
 
 <h2>Setting it up in Rise</h2>
 <ol>
-  <li>Set your alarm for 5:00 in Rise. It rings through Silent mode and Focus.</li>
-  <li>Stop it and start a 20-minute session for the first block. 20-minute sessions need Pro; free sessions go up to 15.</li>
-  <li>Start a new session for each of the next two blocks with Focus now, or use one 60-minute session for the whole hour.</li>
-  <li>The streak counts every morning you complete, and the early-wake titles mark wake-ups before 8, 7, 6, 5 and 4 AM.</li>
+  <li>Set your alarm for 5:00 in Rise. It rings in Silent mode and through Focus.</li>
+  <li>Stop it and the wake-up screen opens with a focus timer. Sessions over 15 minutes need Pro.</li>
+  <li>Rise runs one session per morning, so time the whole hour as one 60-minute session and switch activity every 20 minutes.</li>
+  <li>The streak counts every morning you complete, and with Pro the early titles mark starting a session by 8, 7, 6, 5 and 4 AM.</li>
 </ol>
 {fig("shot-ringing.webp", "Rise alarm ringing on the Lock Screen at 5:00", "One alarm at 5, then the first timed block.")}
 
 <h2>Do you have to wake at exactly 5?</h2>
 <p>No. The value is in having a protected hour before the day's demands start, not in the number on the clock. A 6:30 version of the same structure works the same way if that is when your house is quiet.</p>
 """,
-cross=f"""Want 5 AM on weekdays and a later alarm on weekends, each in its own group? <a href="{AP}/guides/recurring-alarm-iphone/" data-ph="crosssell_alarmplanner">Alarm Clock Planner handles repeating alarms and groups</a>.""",
+cross=f"""Need a one-off 5 AM alarm on a specific date, like race day? <a href="{AP}/guides/set-alarm-for-specific-date-iphone/" data-ph="crosssell_alarmplanner">Alarm Clock Planner</a>, from the same maker, sets alarms for any future date.""",
 related=["75-hard-morning-routine", "build-a-morning-routine-that-sticks", "wind-down-routine-before-bed"],
 cta_h="Your 5 AM hour, timed",
 cta_p="One alarm, then focus sessions. Free to try.",
@@ -455,14 +465,14 @@ body=f"""
   <li><strong>Pick a start time.</strong> Count back from your alarm. For a 6:30 alarm and 7.5 hours of sleep, wind down from about 10:30.</li>
   <li><strong>Dim the lights</strong> and turn on Night Shift or a Sleep Focus on the phone.</li>
   <li><strong>Put work away.</strong> Close the laptop, write tomorrow's top task on paper so it stops circling.</li>
-  <li><strong>One calm activity</strong> for 10 to 30 minutes: reading on paper, stretching, breathing, or just listening to rain.</li>
+  <li><strong>One calm activity</strong> for 10 to 30 minutes: reading on paper, stretching, breathing, or just sitting with a calm sound.</li>
   <li><strong>Lights out at the same time</strong> most nights.</li>
 </ol>
 
 <h2>Wind Down in Rise</h2>
 <ol>
-  <li>In the evening, open Rise and start Wind Down.</li>
-  <li>Pick a sound: rain, waves, thunderstorm, fireplace, white noise or space ship.</li>
+  <li>In the evening, open Rise and tap Wind Down on the Home screen.</li>
+  <li>Pick a sound: fireplace, storm, waves, white noise or space ship.</li>
   <li>Choose a length. Up to 10 minutes is free; Pro offers up to 30.</li>
   <li>The session runs on the Lock Screen as a Live Activity, so you can put the phone down and let the sound play.</li>
 </ol>
@@ -582,15 +592,15 @@ assert sorted(_clustered) == sorted(BY), f"hub out of sync: {set(BY) ^ set(_clus
 # Shared by the hub and the homepage FAQ (index.html, between the FAQ markers).
 HUB_FAQ = [
     ("Does Rise's alarm ring on Silent mode?",
-     """Yes. Rise uses Apple's AlarmKit, the same system alarms the Clock app uses, so your alarm rings through
-     the Silent switch, Do Not Disturb and Focus modes. It needs iOS 26.2 or later.""",
+     """Yes. Rise uses Apple's AlarmKit, the framework for real system alarms, so your alarm rings in Silent
+     mode and through Do Not Disturb and Focus. It needs iOS 26.2 or later.""",
      "how-to-not-fall-back-asleep-after-alarm"),
     ("What happens after the alarm rings?",
-     """Stopping the alarm opens Rise's wake-up screen with a focus timer. Pick a length and start a session:
+     """The alarm has one button, Stop, and stopping it opens Rise's wake-up screen with a focus timer. Pick a length and start a session:
      read, journal, stretch, or just sit with a coffee. Finishing it adds a day to your streak.""",
      "how-to-stop-snoozing-your-alarm"),
     ("Can I use the focus timer outside the morning?",
-     """Yes. Focus now on the Home screen starts a session at any hour of the day.""",
+     """Yes. If you have not had a session yet today, Focus now on the Home screen starts one at any hour.""",
      "focus-timer-lock-screen-iphone"),
     ("What is the wake-up check?",
      """A second alarm, 5, 10 or 20 minutes after your wake-up alarm, that rings only if you have not started
@@ -598,15 +608,15 @@ HUB_FAQ = [
      "how-to-not-fall-back-asleep-after-alarm"),
     ("What is free and what is Pro?",
      """Free: the alarm, focus sessions of 5, 10 or 15 minutes, Wind Down up to 10 minutes, your streak, the
-     Beginner title, Live Activities and iCloud backup. Pro adds sessions up to 120 minutes, the wake-up check,
+     Beginner title, Live Activities, the Home Screen widgets and iCloud backup. Pro adds sessions up to 120 minutes, the wake-up check,
      streak history and freezes, reflections, all titles, Apple Health and longer Wind Down. Pro is a yearly
      plan with a 7-day free trial, or a one-time Lifetime purchase.""",
      None),
     ("What if I miss a morning?",
-     """Your streak resets, unless you have Pro, which gives you one streak freeze per week to cover a missed day.""",
+     """Your streak resets. With Pro you can freeze it once a week: tap the freeze on a day you cannot make it and the streak holds.""",
      "build-a-morning-routine-that-sticks"),
     ("Does Rise work on iPad?",
-     """Yes, Rise runs on iPhone and iPad with iOS 26.2 or later.""",
+     """Rise is designed for iPhone. You can also install it on an iPad, where it runs as an iPhone app.""",
      None),
     ("Do I need an account?",
      """No. There is no sign-up. Your routine data stays on your device, with an optional backup to your own iCloud.""",
@@ -671,17 +681,17 @@ write("guides/index.html", page(
 # ---------- support ----------
 SUPPORT = [
     ("My alarm did not ring",
-     """Check that Rise still has permission to set alarms, in the iPhone Settings app under Rise. Alarms ring through Silent and
-     Focus, but not when the phone is off or the battery is empty. If it still did not ring, email us the date,
+     """Check that Rise still has permission to set alarms, in the iPhone Settings app under Rise. Alarms ring in Silent mode and
+     through Focus, but not when the phone is off or the battery is empty. If it still did not ring, email us the date,
      time and your iOS version."""),
     ("How do I restore my purchase?",
-     """Open Rise, go to Settings and tap Restore Purchases. Use the same Apple Account you bought Pro with."""),
+     """Open the Rise Pro screen, for example from the upgrade option in Rise's Settings, and tap Restore at the bottom. Use the same Apple Account you bought Pro with."""),
     ("How do I cancel the free trial or subscription?",
      """In the iPhone Settings app, tap your name, then Subscriptions, then Rise. Cancel at least a day before the
      trial ends and you will not be charged. Rise shows the days left in its own Settings too."""),
     ("How do I move Rise to a new iPhone?",
-     """Turn on iCloud backup in Rise's Settings on the old phone. On the new one, install Rise and restore from
-     iCloud when it offers to."""),
+     """Turn on iCloud backup in Rise's Settings on the old phone. On the new iPhone, signed in to the same Apple
+     Account, install Rise and tap Restore from Backup when it offers it."""),
     ("Can I get a refund?",
      """Refunds for App Store purchases are handled by Apple at reportaproblem.apple.com."""),
 ]
