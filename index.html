@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rise - Your Morning Ritual, Reinvented</title>
-    <meta name="description" content="Rise turns your morning into a ritual. Smart alarms, focus sessions, wind-down, and a daily streak. Try free, or pay once for life.">
-    <meta name="keywords" content="morning routine app, alarm app, focus timer, wind down app, streak tracker, habit tracker, wake up app, productivity, iOS app, daily routine, morning ritual">
+    <title>Rise: Morning Routine Alarm &amp; Focus Timer for iPhone</title>
+    <meta name="description" content="An alarm that leads straight into a focus session, so the day starts with you, not your phone. Rings on Silent, focus timer on the Lock Screen, a streak, and an evening wind-down. Free to try.">
+    <meta name="apple-itunes-app" content="app-id=6760960639">
     <link rel="canonical" href="https://risemorning.app/">
-    <meta property="og:title" content="Rise - Your Morning Ritual, Reinvented">
+    <meta property="og:title" content="Rise: Morning Routine Alarm &amp; Focus Timer">
     <meta property="og:description" content="Smart alarms, focus sessions, wind-down, and a daily streak. Build a morning routine that sticks.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://risemorning.app/">
@@ -16,7 +16,7 @@
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Rise">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Rise - Your Morning Ritual, Reinvented">
+    <meta name="twitter:title" content="Rise: Morning Routine Alarm &amp; Focus Timer">
     <meta name="twitter:description" content="Smart alarms, focus sessions, wind-down, and a daily streak. Build a morning routine that sticks.">
     <meta name="twitter:image" content="https://risemorning.app/assets/ogshare.png">
     <meta property="og:locale" content="en_US">
@@ -41,691 +41,14 @@
             document.documentElement.setAttribute('data-theme', theme);
         })();
     </script>
-    <style>
-        :root {
-            --accent: #D4882A;
-            --accent-hover: #c07a22;
-            --accent-soft: #FFF3E0;
-            --accent-glow: rgba(212, 136, 42, 0.15);
-            --success: #4CAF7D;
-            --text-primary: #1a1a1a;
-            --text-secondary: #555;
-            --text-tertiary: #888;
-            --bg: #F8F6F3;
-            --bg-alt: #F0EDE8;
-            --card-bg: #fff;
-            --card-border: rgba(0,0,0,0.06);
-            --nav-bg: rgba(248, 246, 243, 0.85);
-            --footer-border: #e8e4df;
-            --table-header: #FFF8F0;
-            --table-border: #e8e4df;
-            --gradient-warm: linear-gradient(135deg, #FFF3E0 0%, #F8F6F3 50%, #FFF8F0 100%);
-            --gradient-hero: linear-gradient(180deg, #FFF3E0 0%, #F8F6F3 100%);
-            --gradient-cta: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 50%, #1a1a2e 100%);
-        }
-
-        [data-theme="dark"] {
-            --accent: #E8A44A;
-            --accent-hover: #d4963e;
-            --accent-soft: #2a2218;
-            --accent-glow: rgba(232, 164, 74, 0.12);
-            --success: #4CAF7D;
-            --text-primary: #f0f0f0;
-            --text-secondary: #a1a1a6;
-            --text-tertiary: #8e8e93;
-            --bg: #1A1A1E;
-            --bg-alt: #161618;
-            --card-bg: #2c2c2e;
-            --card-border: rgba(255,255,255,0.08);
-            --nav-bg: rgba(26, 26, 30, 0.85);
-            --footer-border: #2c2c2e;
-            --table-header: #2a2218;
-            --table-border: #3a3a3c;
-            --gradient-warm: linear-gradient(135deg, #2a2218 0%, #1A1A1E 50%, #2a2218 100%);
-            --gradient-hero: linear-gradient(180deg, #2a2218 0%, #1A1A1E 100%);
-            --gradient-cta: linear-gradient(135deg, #2a2218 0%, #1a1a1e 50%, #2a2218 100%);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text-primary);
-            font-size: 15px;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .container {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ---- NAV ---- */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background: var(--nav-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .nav-inner {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 0 24px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .nav-brand img {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-        }
-
-        .nav-brand span {
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--text-primary); }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .nav-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--accent);
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .nav-download:hover { background: var(--accent-hover); }
-
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--text-secondary);
-            padding: 6px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            transition: color 0.2s;
-        }
-
-        .theme-toggle:hover { color: var(--text-primary); }
-
-        .theme-toggle svg { width: 20px; height: 20px; }
-
-        .sun-icon { display: none; }
-        .moon-icon { display: block; }
-        [data-theme="dark"] .sun-icon { display: block; }
-        [data-theme="dark"] .moon-icon { display: none; }
-
-        /* ---- HERO ---- */
-        .hero {
-            padding: 140px 0 80px;
-            background: var(--gradient-hero);
-        }
-
-        .hero-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-        }
-
-        .hero-content {
-            max-width: 500px;
-        }
-
-        .hero-label {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            margin-bottom: 16px;
-        }
-
-        .hero-title {
-            font-size: 52px;
-            font-weight: 700;
-            letter-spacing: -1.5px;
-            line-height: 1.08;
-            margin-bottom: 20px;
-        }
-
-        .hero-title .highlight {
-            background: linear-gradient(135deg, var(--accent), #E8A44A);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 12px;
-        }
-
-        .hero-pricing {
-            font-size: 14px;
-            color: var(--text-tertiary);
-            margin-bottom: 32px;
-        }
-
-        .hero-pricing strong {
-            color: var(--text-primary);
-        }
-
-        .hero-buttons {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .app-store-badge img {
-            height: 52px;
-        }
-
-        .coming-soon {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            color: var(--text-secondary);
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
-            cursor: default;
-        }
-
-        .coming-soon svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        .hero-image {
-            flex-shrink: 0;
-        }
-
-        .hero-phone {
-            width: 280px;
-        }
-
-        /* ---- SCREENSHOT STRIP ---- */
-        .screenshots-section {
-            padding: 80px 0;
-            overflow: hidden;
-        }
-
-        .screenshots-strip {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            padding: 0 24px;
-        }
-
-        .screenshots-strip img {
-            width: auto;
-            height: 420px;
-            border-radius: 24px;
-            object-fit: contain;
-            transition: transform 0.3s;
-        }
-
-        .screenshots-strip img:hover {
-            transform: translateY(-4px);
-        }
-
-        /* ---- SECTIONS COMMON ---- */
-        .section { padding: 100px 0; }
-        .section-alt { background: var(--bg-alt); }
-
-        .section-label {
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--accent);
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-        }
-
-        .section-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 560px;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header .section-subtitle {
-            margin: 0 auto;
-        }
-
-        /* ---- HOW IT WORKS ---- */
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-
-        .step-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 32px 24px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .step-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-        }
-
-        .step-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .step-icon {
-            font-size: 32px;
-            margin-bottom: 16px;
-        }
-
-        .step-card h3 {
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .step-card p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* ---- FEATURES ---- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 28px 24px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-        }
-
-        .feature-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--accent-soft);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        .feature-icon svg {
-            width: 22px;
-            height: 22px;
-            color: var(--accent);
-        }
-
-        .feature-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-
-        .feature-badge {
-            display: inline-block;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            background: var(--accent);
-            color: #fff;
-            padding: 2px 8px;
-            border-radius: 6px;
-            margin-left: 6px;
-            vertical-align: middle;
-        }
-
-        .feature-card p {
-            font-size: 14px;
-            color: var(--text-secondary);
-            line-height: 1.5;
-        }
-
-        /* ---- PRICING ---- */
-        .pricing-wrapper {
-            max-width: 640px;
-            margin: 0 auto;
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .pricing-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 36px 28px;
-            text-align: center;
-            position: relative;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 1px var(--accent), 0 8px 32px var(--accent-glow);
-        }
-
-        .pricing-card.featured:hover {
-            box-shadow: 0 0 0 1px var(--accent), 0 12px 40px var(--accent-glow);
-        }
-
-        .pricing-popular {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: #fff;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .pricing-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .pricing-amount {
-            font-size: 44px;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 4px;
-        }
-
-        .pricing-period {
-            font-size: 14px;
-            color: var(--text-tertiary);
-            margin-bottom: 24px;
-        }
-
-        .pricing-features {
-            list-style: none;
-            text-align: left;
-            margin-bottom: 28px;
-        }
-
-        .pricing-features li {
-            font-size: 14px;
-            color: var(--text-secondary);
-            padding: 8px 0;
-            border-bottom: 1px solid var(--card-border);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .pricing-features li:last-child { border-bottom: none; }
-
-        .pricing-features .check {
-            color: var(--success);
-            font-weight: 600;
-            flex-shrink: 0;
-        }
-
-        .pricing-features .dash {
-            color: var(--text-tertiary);
-            flex-shrink: 0;
-        }
-
-        .pricing-note {
-            text-align: center;
-            margin-top: 24px;
-            font-size: 14px;
-            color: var(--text-tertiary);
-        }
-
-        /* ---- CTA ---- */
-        .cta-section {
-            padding: 100px 0;
-            background: var(--gradient-cta);
-            text-align: center;
-        }
-
-        .cta-section .section-title {
-            color: #fff;
-        }
-
-        .cta-section .section-subtitle {
-            color: rgba(255,255,255,0.7);
-            margin: 0 auto 36px;
-        }
-
-        /* ---- FOOTER ---- */
-        footer {
-            border-top: 1px solid var(--footer-border);
-            padding: 40px 0;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-brand img {
-            width: 28px;
-            height: 28px;
-            border-radius: 7px;
-        }
-
-        .footer-brand-text h4 {
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .footer-brand-text p {
-            font-size: 13px;
-            color: var(--text-tertiary);
-        }
-
-        .footer-links {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .footer-links a {
-            font-size: 14px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-links a:hover { color: var(--text-primary); }
-
-        .footer-copy {
-            width: 100%;
-            text-align: center;
-            font-size: 13px;
-            color: var(--text-tertiary);
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--footer-border);
-        }
-
-        /* ---- ANIMATIONS ---- */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ---- RESPONSIVE ---- */
-        @media (max-width: 900px) {
-            .hero-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-            .hero-content { max-width: 100%; }
-            .hero-title { font-size: 40px; }
-            .hero-buttons { justify-content: center; }
-            .hero-phone { width: 200px; border-radius: 28px; }
-            .screenshots-strip img { height: 360px; border-radius: 20px; }
-            .steps-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 700px) {
-            .nav-links { display: none; }
-            .hero { padding: 120px 0 60px; }
-            .hero-title { font-size: 34px; }
-            .hero-subtitle { font-size: 16px; }
-            .section { padding: 72px 0; }
-            .section-title { font-size: 28px; }
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-            .steps-grid { grid-template-columns: 1fr 1fr; }
-            .screenshots-strip { gap: 16px; }
-            .screenshots-strip img { height: 300px; border-radius: 18px; }
-        }
-
-        @media (max-width: 600px) {
-            .features-grid { grid-template-columns: 1fr; }
-            .pricing-cards { grid-template-columns: 1fr; }
-            .steps-grid { grid-template-columns: 1fr; }
-            .screenshots-strip img { height: 260px; border-radius: 16px; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title { font-size: 30px; }
-            .hero-phone { width: 160px; border-radius: 24px; }
-            .section-title { font-size: 24px; }
-            .pricing-amount { font-size: 36px; }
-            .screenshots-strip { gap: 12px; }
-            .screenshots-strip img { height: 220px; border-radius: 14px; }
-        }
-
-        /* Schema.org */
-        script[type="application/ld+json"] { display: none; }
-    </style>
+    <link rel="stylesheet" href="/styles.css">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Rise",
-        "description": "Turn your morning into a ritual. Smart alarms, focus sessions, wind-down, and a daily streak. Try free, or pay once for life.",
+        "description": "An alarm that leads straight into a focus session. Rings on Silent, focus timer on the Lock Screen, a daily streak, and an evening wind-down.",
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "iOS",
         "availableOnDevice": "iPhone, iPad",
@@ -737,26 +60,92 @@
             "https://risemorning.app/assets/screenshot-streak.png",
             "https://risemorning.app/assets/screenshot-winddown.png"
         ],
-        "offers": [
-            {
-                "@type": "Offer",
-                "price": "19.99",
-                "priceCurrency": "USD",
-                "description": "Lifetime, one-time purchase"
-            },
-            {
-                "@type": "Offer",
-                "price": "1.99",
-                "priceCurrency": "USD",
-                "description": "Weekly subscription with 3-day free trial"
-            }
-        ],
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "Free download. Rise Pro: yearly with a 7-day free trial, or a one-time Lifetime purchase."
+        },
         "author": {
             "@type": "Person",
             "name": "Emils Ozols"
         }
     }
     </script>
+<!-- FAQLD:START -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does Rise's alarm ring on Silent mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Rise uses Apple's AlarmKit, the same system alarms the Clock app uses, so your alarm rings through the Silent switch, Do Not Disturb and Focus modes. It needs iOS 26.2 or later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens after the alarm rings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Stopping the alarm opens Rise's wake-up screen with a focus timer. Pick a length and start a session: read, journal, stretch, or just sit with a coffee. Finishing it adds a day to your streak."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use the focus timer outside the morning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Focus now on the Home screen starts a session at any hour of the day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the wake-up check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A second alarm, 5, 10 or 20 minutes after your wake-up alarm, that rings only if you have not started your morning session. Starting the session cancels it for the day. It is part of Rise Pro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is free and what is Pro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Free: the alarm, focus sessions of 5, 10 or 15 minutes, Wind Down up to 10 minutes, your streak, the Beginner title, Live Activities and iCloud backup. Pro adds sessions up to 120 minutes, the wake-up check, streak history and freezes, reflections, all titles, Apple Health and longer Wind Down. Pro is a yearly plan with a 7-day free trial, or a one-time Lifetime purchase."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I miss a morning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your streak resets, unless you have Pro, which gives you one streak freeze per week to cover a missed day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Rise work on iPad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, Rise runs on iPhone and iPad with iOS 26.2 or later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. There is no sign-up. Your routine data stays on your device, with an optional backup to your own iCloud."
+      }
+    }
+  ]
+}
+</script>
+<!-- FAQLD:END -->
 </head>
 <body>
 
@@ -771,9 +160,11 @@
             <a href="#how-it-works">How It Works</a>
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
+            <a href="/guides/">Guides</a>
+            <a href="#faq">FAQ</a>
         </div>
         <div class="nav-right">
-            <a href="https://apps.apple.com/de/app/rise-morning-routine-alarm/id6760960639?l=en-GB" class="nav-download" target="_blank" rel="noopener">Download</a>
+            <a href="https://apps.apple.com/app/apple-store/id6760960639?pt=2187944&amp;ct=Website_Home&amp;mt=8" class="nav-download" data-ph="appstore_click">Download</a>
             <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                 <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -790,9 +181,9 @@
                 <p class="hero-label">Morning Routine App</p>
                 <h1 class="hero-title">Your morning routine, <span class="highlight">reinvented.</span></h1>
                 <p class="hero-subtitle">Rise guides you through a calm, structured morning, from alarm to focus session, so you can start every day intentionally.</p>
-                <p class="hero-pricing">Free to try. <strong>$19.99 once</strong> or weekly with a 3-day free trial.</p>
+                <p class="hero-pricing">Free to try. Pro is <strong>yearly with a 7-day free trial</strong>, or once for life.</p>
                 <div class="hero-buttons">
-                    <a href="https://apps.apple.com/de/app/rise-morning-routine-alarm/id6760960639?l=en-GB" class="coming-soon" target="_blank" rel="noopener" style="text-decoration: none; color: var(--text-secondary); cursor: pointer;">
+                    <a href="https://apps.apple.com/app/apple-store/id6760960639?pt=2187944&amp;ct=Website_Home&amp;mt=8" class="coming-soon" data-ph="appstore_click" style="text-decoration: none; color: var(--text-secondary); cursor: pointer;">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                         Download for iOS
                     </a>
@@ -817,12 +208,12 @@
             <div class="step-card fade-in">
                 <div class="step-number">1</div>
                 <h3>Alarm</h3>
-                <p>Set your wake time. Rise uses real system-level alarms that ring even in silent mode.</p>
+                <p>Set your wake time. Rise uses real system alarms that ring through Silent mode and Focus.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">2</div>
                 <h3>Focus</h3>
-                <p>Settle into a quiet session. Read, journal, meditate, or just breathe before the day opens up.</p>
+                <p>Stopping the alarm opens a focus timer. Read, journal, stretch, or just breathe before the day opens up.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">3</div>
@@ -874,7 +265,7 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                 </div>
                 <h3>Focus Sessions</h3>
-                <p>Short sessions free, up to 120 minutes with Pro. No rigid Pomodoro rules. Your pace, your way.</p>
+                <p>5 to 15 minutes free, up to 120 with Pro. Start one after your alarm, or any time of day with Focus now.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">
@@ -916,14 +307,14 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
                 </div>
                 <h3>iCloud Backup</h3>
-                <p>Your settings, streak, and journal back up privately to your iCloud. Restore on a new device in one tap.</p>
+                <p>Your settings, streak, and journal back up privately to your iCloud, free. Restore on a new device in one tap.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                 </div>
                 <h3>Widgets &amp; Live Activities</h3>
-                <p>Streak and next alarm on your Home or Lock Screen. Live focus timer on the Dynamic Island.</p>
+                <p>Streak and next alarm on your Home or Lock Screen. The focus timer counts down on the Lock Screen and Dynamic Island.</p>
             </div>
         </div>
     </div>
@@ -934,40 +325,123 @@
     <div class="container">
         <div class="section-header fade-in">
             <p class="section-label">Pricing</p>
-            <h2 class="section-title">Simple, transparent pricing</h2>
-            <p class="section-subtitle">Choose the plan that works for you.</p>
+            <h2 class="section-title">Free to start, Pro when you want more</h2>
+            <p class="section-subtitle">The core morning flow is free. Pro unlocks longer sessions and the extras.</p>
         </div>
         <div class="pricing-wrapper fade-in">
             <div class="pricing-cards">
-                <div class="pricing-card featured">
-                    <div class="pricing-popular">Best Value</div>
-                    <h3>Lifetime</h3>
-                    <div class="pricing-amount">$19.99</div>
-                    <div class="pricing-period">one-time purchase</div>
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="pricing-period">yours to keep</div>
                     <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Pay once, keep forever</li>
-                        <li><span class="check">&#10003;</span> No subscription</li>
-                        <li><span class="check">&#10003;</span> Full focus and wind-down</li>
-                        <li><span class="check">&#10003;</span> Reflections + 40+ titles</li>
-                        <li><span class="check">&#10003;</span> Streak history + freezes</li>
-                        <li><span class="check">&#10003;</span> Apple Health + iCloud backup</li>
+                        <li><span class="check">&#10003;</span> Alarm that rings on Silent</li>
+                        <li><span class="check">&#10003;</span> Focus sessions of 5, 10 or 15 min</li>
+                        <li><span class="check">&#10003;</span> Wind Down up to 10 min</li>
+                        <li><span class="check">&#10003;</span> Daily streak + Beginner title</li>
+                        <li><span class="check">&#10003;</span> Live Activities + iCloud backup</li>
                     </ul>
                 </div>
-                <div class="pricing-card">
-                    <h3>Weekly</h3>
-                    <div class="pricing-amount">$1.99</div>
-                    <div class="pricing-period">per week, 3-day free trial</div>
+                <div class="pricing-card featured">
+                    <div class="pricing-popular">7-day free trial</div>
+                    <h3>Pro</h3>
+                    <div class="pricing-period">yearly, or once for life</div>
                     <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Everything in Lifetime</li>
-                        <li><span class="check">&#10003;</span> 3-day free trial</li>
-                        <li><span class="check">&#10003;</span> Try before you commit</li>
-                        <li><span class="check">&#10003;</span> Cancel anytime in Settings</li>
-                        <li><span class="check">&#10003;</span> Auto-renews weekly</li>
-                        <li><span class="check">&#10003;</span> Best for the short term</li>
+                        <li><span class="check">&#10003;</span> Focus up to 120 min + extend</li>
+                        <li><span class="check">&#10003;</span> Wake-up check alarm</li>
+                        <li><span class="check">&#10003;</span> Streak history + freezes</li>
+                        <li><span class="check">&#10003;</span> Reflections + 45 more titles</li>
+                        <li><span class="check">&#10003;</span> Wind Down up to 30 min</li>
+                        <li><span class="check">&#10003;</span> Apple Health sync</li>
                     </ul>
                 </div>
             </div>
-            <p class="pricing-note">Or just try free. The alarm, short focus, short wind-down, daily streak, and Beginner title are yours forever.</p>
+            <p class="pricing-note">The free trial comes with the yearly plan. Cancel any time in your iPhone's Settings. Prices are shown in your currency on the App Store.</p>
+        </div>
+    </div>
+</section>
+
+<!-- GUIDES -->
+<section class="section" id="guides">
+    <div class="container">
+        <div class="section-header fade-in">
+            <p class="section-label">Guides</p>
+            <h2 class="section-title">Better mornings, step by step</h2>
+            <p class="section-subtitle">Practical guides to getting up, staying off the phone, and building a routine that lasts.</p>
+        </div>
+        <div class="guide-grid">
+<!-- GUIDES:START -->
+            <a class="guide-card" href="/guides/how-to-stop-snoozing-your-alarm/">
+                <h3>How to Stop Snoozing Your Alarm and Actually Get Up</h3>
+                <span class="more">Read the guide</span>
+            </a>
+            <a class="guide-card" href="/guides/how-to-not-fall-back-asleep-after-alarm/">
+                <h3>How to Not Fall Back Asleep After Your Alarm</h3>
+                <span class="more">Read the guide</span>
+            </a>
+            <a class="guide-card" href="/guides/stop-checking-phone-in-the-morning/">
+                <h3>How to Stop Checking Your Phone First Thing in the Morning</h3>
+                <span class="more">Read the guide</span>
+            </a>
+            <a class="guide-card" href="/guides/build-a-morning-routine-that-sticks/">
+                <h3>How to Build a Morning Routine That Actually Sticks</h3>
+                <span class="more">Read the guide</span>
+            </a>
+            <a class="guide-card" href="/guides/5am-club-routine/">
+                <h3>The 5AM Club Routine: 20/20/20 With an Alarm and a Timer</h3>
+                <span class="more">Read the guide</span>
+            </a>
+            <a class="guide-card" href="/guides/wind-down-routine-before-bed/">
+                <h3>A Simple Wind-Down Routine Before Bed</h3>
+                <span class="more">Read the guide</span>
+            </a>
+<!-- GUIDES:END -->
+        </div>
+        <p style="text-align:center;margin-top:24px"><a href="/guides/">All guides</a></p>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-alt" id="faq">
+    <div class="container">
+        <div class="section-header fade-in">
+            <p class="section-label">FAQ</p>
+            <h2 class="section-title">Questions, answered</h2>
+        </div>
+        <div class="faq-list">
+<!-- FAQ:START -->
+            <details>
+              <summary>Does Rise's alarm ring on Silent mode?</summary>
+              <p>Yes. Rise uses Apple's AlarmKit, the same system alarms the Clock app uses, so your alarm rings through the Silent switch, Do Not Disturb and Focus modes. It needs iOS 26.2 or later. <a href="/guides/how-to-not-fall-back-asleep-after-alarm/">Read the guide</a></p>
+            </details>
+            <details>
+              <summary>What happens after the alarm rings?</summary>
+              <p>Stopping the alarm opens Rise's wake-up screen with a focus timer. Pick a length and start a session: read, journal, stretch, or just sit with a coffee. Finishing it adds a day to your streak. <a href="/guides/how-to-stop-snoozing-your-alarm/">Read the guide</a></p>
+            </details>
+            <details>
+              <summary>Can I use the focus timer outside the morning?</summary>
+              <p>Yes. Focus now on the Home screen starts a session at any hour of the day. <a href="/guides/focus-timer-lock-screen-iphone/">Read the guide</a></p>
+            </details>
+            <details>
+              <summary>What is the wake-up check?</summary>
+              <p>A second alarm, 5, 10 or 20 minutes after your wake-up alarm, that rings only if you have not started your morning session. Starting the session cancels it for the day. It is part of Rise Pro. <a href="/guides/how-to-not-fall-back-asleep-after-alarm/">Read the guide</a></p>
+            </details>
+            <details>
+              <summary>What is free and what is Pro?</summary>
+              <p>Free: the alarm, focus sessions of 5, 10 or 15 minutes, Wind Down up to 10 minutes, your streak, the Beginner title, Live Activities and iCloud backup. Pro adds sessions up to 120 minutes, the wake-up check, streak history and freezes, reflections, all titles, Apple Health and longer Wind Down. Pro is a yearly plan with a 7-day free trial, or a one-time Lifetime purchase.</p>
+            </details>
+            <details>
+              <summary>What if I miss a morning?</summary>
+              <p>Your streak resets, unless you have Pro, which gives you one streak freeze per week to cover a missed day. <a href="/guides/build-a-morning-routine-that-sticks/">Read the guide</a></p>
+            </details>
+            <details>
+              <summary>Does Rise work on iPad?</summary>
+              <p>Yes, Rise runs on iPhone and iPad with iOS 26.2 or later.</p>
+            </details>
+            <details>
+              <summary>Do I need an account?</summary>
+              <p>No. There is no sign-up. Your routine data stays on your device, with an optional backup to your own iCloud.</p>
+            </details>
+<!-- FAQ:END -->
         </div>
     </div>
 </section>
@@ -978,7 +452,7 @@
         <h2 class="section-title fade-in">Start your mornings right</h2>
         <p class="section-subtitle fade-in">Your morning sets the tone for your entire day. Make it count.</p>
         <div class="fade-in">
-            <a href="https://apps.apple.com/de/app/rise-morning-routine-alarm/id6760960639?l=en-GB" class="coming-soon" target="_blank" rel="noopener" style="border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); text-decoration: none; cursor: pointer;">
+            <a href="https://apps.apple.com/app/apple-store/id6760960639?pt=2187944&amp;ct=Website_Home&amp;mt=8" class="coming-soon" data-ph="appstore_click" style="border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); text-decoration: none; cursor: pointer;">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                 Download for iOS
             </a>
@@ -998,9 +472,12 @@
                 </div>
             </div>
             <div class="footer-links">
+                <a href="/guides/">Guides</a>
+                <a href="/support/">Support</a>
                 <a href="terms.html">Terms of Use</a>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="mailto:info@risemorning.app">Contact</a>
+                <a href="https://alarmclockplanner.com/" data-ph="crosssell_alarmplanner">Alarm Clock Planner</a>
             </div>
         </div>
         <p class="footer-copy">Made by Emils Ozols &copy; 2026 Rise</p>

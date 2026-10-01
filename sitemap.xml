@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://risemorning.app/</loc>
-        <lastmod>2026-03-25</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://risemorning.app/privacy.html</loc>
-        <lastmod>2026-03-23</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.3</priority>
-    </url>
+  <url><loc>https://risemorning.app/</loc><lastmod>2026-10-01</lastmod><priority>1.0</priority></url>
+  <url><loc>https://risemorning.app/guides/</loc><lastmod>2026-10-01</lastmod><priority>0.8</priority></url>
+  <url><loc>https://risemorning.app/guides/how-to-stop-snoozing-your-alarm/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://risemorning.app/guides/how-to-not-fall-back-asleep-after-alarm/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://risemorning.app/guides/stop-checking-phone-in-the-morning/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://risemorning.app/guides/focus-timer-lock-screen-iphone/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://risemorning.app/guides/build-a-morning-routine-that-sticks/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://risemorning.app/guides/75-hard-morning-routine/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://risemorning.app/guides/5am-club-routine/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://risemorning.app/guides/wind-down-routine-before-bed/</loc><lastmod>2026-10-01</lastmod><priority>0.7</priority></url>
+  <url><loc>https://risemorning.app/support/</loc><lastmod>2026-10-01</lastmod><priority>0.4</priority></url>
+  <url><loc>https://risemorning.app/terms.html</loc><lastmod>2026-10-01</lastmod><priority>0.2</priority></url>
+  <url><loc>https://risemorning.app/privacy.html</loc><lastmod>2026-10-01</lastmod><priority>0.2</priority></url>
 </urlset>
