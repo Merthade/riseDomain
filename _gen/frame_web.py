@@ -56,6 +56,17 @@ def shell_with_buttons(img):
 
 
 
+def add_dynamic_island(img):
+    """Simulator captures have no Dynamic Island; draw it. iPhone 17 Pro Max geometry:
+    ~125x37 pt, 11 pt from the top, at 3x on a 1320 px (440 pt) wide capture."""
+    w, h = img.size
+    k = w / 440
+    iw, ih, top = 125 * k, 37 * k, 11 * k
+    x0 = (w - iw) / 2
+    ImageDraw.Draw(img).rounded_rectangle([x0, top, x0 + iw, top + ih], radius=ih / 2, fill=(0, 0, 0, 255))
+    return img
+
+
 JOBS = {
     "shot-home.webp":      f"{FRESH}/home.png",
     "shot-wake.webp":      f"{FRESH}/wake.png",
@@ -69,7 +80,7 @@ JOBS = {
 
 if __name__ == "__main__":
     for name, path in JOBS.items():
-        img = Image.open(path).convert("RGBA")
+        img = add_dynamic_island(Image.open(path).convert("RGBA"))
         framed = shell_with_buttons(img).resize(FINAL, Image.LANCZOS)
         dst = os.path.join(OUT, name)
         framed.save(dst, "WEBP", quality=82, method=6)
